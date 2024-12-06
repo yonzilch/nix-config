@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  environment.systemPackages.just = {
-    enable = true;
-  };
+  environment.systemPackages = with pkgs; [
+    just
+  ];
 }

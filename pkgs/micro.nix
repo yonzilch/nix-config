@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  environment.systemPackages.micro = {
-    enable = true;
-  };
+  environment.systemPackages = with pkgs; [
+    micro
+  ];
 }
