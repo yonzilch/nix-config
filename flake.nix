@@ -10,7 +10,7 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { nixpkgs, self, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "disko";

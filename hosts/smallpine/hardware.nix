@@ -8,7 +8,7 @@
   boot.initrd.availableKernelModules = [ "virtio_blk" "virtio_mmio" "virtio_net" "virtio_pci" "virtio_scsi" ];
   boot.initrd.includeDefaultModules = false;
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" "ext4" ... ];
+  boot.kernelModules = [ "kvm-intel" "ext4" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
