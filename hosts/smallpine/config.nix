@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware.nix
+    ../../pkgs/fastfetch.nix
     ../../pkgs/git.nix
     ../../pkgs/just.nix
     ../../pkgs/micro.nix
