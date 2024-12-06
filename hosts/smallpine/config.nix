@@ -4,6 +4,7 @@
     ./hardware.nix
     ../../pkgs/git.nix
     ../../pkgs/just.nix
+    ../../pkgs/micro.nix
     ../../tunes/disable-filewall.nix
     ../../tunes/dns.nix
     ../../tunes/minimalise.nix
