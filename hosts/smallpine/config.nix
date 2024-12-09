@@ -59,14 +59,6 @@
         address = "2607:f130:0:17d::e1aa:3881";
         prefixLength = 64;
       }
-      {
-        address = "2607:f130:0:17d::fc7a:71c5";
-        prefixLength = 64;
-      }
-      {
-        address = "2607:f130:0:17d::4f60:7a23";
-        prefixLength = 64;
-      }
     ];
     defaultGateway6 = {
       address = "2607:f130:0:17d::1";
