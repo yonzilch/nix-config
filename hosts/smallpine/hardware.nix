@@ -10,5 +10,6 @@ _: {
     { device = "/dev/disk/by-uuid/18c38df1-4c9c-4ba9-ab7a-164980eb4dbb";
       fsType = "ext4";
     };
+  networking.useDHCP = false;
   nixpkgs.hostPlatform = "x86_64-linux";
 }
