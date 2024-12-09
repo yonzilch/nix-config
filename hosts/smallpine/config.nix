@@ -74,7 +74,6 @@
       address = "2607:f130:0:17d::1";
       interface = "eth0";
     };
-    hostName = host;
   };
 
 #  # networking config
