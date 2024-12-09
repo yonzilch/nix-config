@@ -18,8 +18,8 @@ build:
 
 
 gc:
+  # let system gc (remove unused packages, etc)
   sudo nix-collect-garbage --delete-older-than 7d
-  nix-collect-garbage --delete-older-than 7d
 
 
 switch input:
