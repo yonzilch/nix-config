@@ -83,13 +83,14 @@
         "2607:f130:0:17d::4f60:7a23/64"
       ];
       gateway = [ "74.48.189.129" ];
+      matchConfig.Name = "eth0";
+      networkConfig = {
+        IPv6AcceptRA = false;
+      };
       routes = [
         {
-          routes = {
-            Gateway = "2607:f130:0:17d::1";
-            GatewayOnLink = true;
-          };
-          matchConfig.Name = "eth0";
+          Gateway = "2607:f130:0:17d::1";
+          GatewayOnLink = true;
         }
       ];
     };
