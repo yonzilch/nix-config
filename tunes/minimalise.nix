@@ -32,6 +32,7 @@
       '';
     };
   };
+  };
 
   # Disable unnecessary programs
   programs = {
