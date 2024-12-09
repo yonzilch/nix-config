@@ -76,22 +76,23 @@
   systemd.network = {
     enable = true;
     networks.eth0 = {
-    address = [
-      "74.48.189.174/26"
-      "2607:f130:0:17d::e1aa:3881/64"
-      "2607:f130:0:17d::fc7a:71c5/64"
-      "2607:f130:0:17d::4f60:7a23/64"
-    ];
-    gateway = [ "74.48.189.129" ];
-    routes = [
-      {
-        routeConfig = {
-          Gateway = "2607:f130:0:17d::1";
-          GatewayOnLink = true;
-        };
-        matchConfig.Name = "eth0";
-      }
-    ];
+      address = [
+        "74.48.189.174/26"
+        "2607:f130:0:17d::e1aa:3881/64"
+        "2607:f130:0:17d::fc7a:71c5/64"
+        "2607:f130:0:17d::4f60:7a23/64"
+      ];
+      gateway = [ "74.48.189.129" ];
+      routes = [
+        {
+          routeConfig = {
+            Gateway = "2607:f130:0:17d::1";
+            GatewayOnLink = true;
+          };
+          matchConfig.Name = "eth0";
+        }
+      ];
+    };
   };
 
   # users
