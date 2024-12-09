@@ -61,5 +61,13 @@
     };
     hostName = host;
   };
+
+  users.users.root = {
+    hashedPassword = "$y$j9T$dCZKGGtp932RhwMuaua54.$qKlsBjVBe54nWMmVGcshCK1fOwZ9Y0I3bZldkNZ5bCD";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDX+DDGhCFLw2DHAOCo0mq62UvrghcfiofdMoOGa/eAK"
+    ];
+  };
+
   system.stateVersion = "24.11";
 }
