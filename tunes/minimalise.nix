@@ -19,10 +19,7 @@
     services = {
       systemd-udev-settle.enable = false;
       systemd-journal-flush.enable = false;
-    };
-    
-    # Restrict journal
-    journald = {
+      journald = {
       extraConfig = ''
         Storage=volatile
         Compress=yes
