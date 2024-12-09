@@ -29,7 +29,11 @@
     PasswordAuthentication = "yes";
   };
 
-  # networking
+  # Enable networking
+  networking.networkmanager.enable = true;
+  networking.hostName = host;
+
+  # networking config
   systemd.network.networks.eth0 = {
     address = [
       "74.48.189.174/26"
@@ -42,7 +46,9 @@
           Gateway = "2607:f130:0:17d::1";
           GatewayOnLink = true;
         };
-    hostName = host;
+        matchConfig.Name = "eth0";
+      }
+    ];
   };
 
   # users
