@@ -28,7 +28,7 @@
   swapDevices = [{ device = "/swapfile"; size = 2048; }];
 
   # openssh
-  services.openssh{
+  services.openssh = {
     enable = true;
     ports = [ 222 ];
      settings = {
