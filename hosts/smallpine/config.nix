@@ -39,6 +39,7 @@
       UseDns = false;
       X11Forwarding = false;
      };
+  };
 
   # networking
   networking = {
