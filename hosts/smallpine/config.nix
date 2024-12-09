@@ -23,6 +23,7 @@
       };
     };
   };
+
   #swap
   swapDevices = [{ device = "/swapfile"; size = 2048; }];
 
@@ -41,23 +42,58 @@
   networking.networkmanager.enable = true;
   networking.hostName = host;
 
-  # networking config
-  systemd.network.networks.eth0 = {
-    address = [
-      "74.48.189.174/26"
-      "2607:f130:0:17d::e1aa:3/128"
-    ];
-    gateway = [ "74.48.189.129" ];
-    routes = [
+  # networking
+  networking = {
+    networkmanager.enable = true;
+    usePredictableInterfaceNames = false;
+    interfaces.eth0.ipv4.addresses = [
       {
-        routeConfig = {
-          Gateway = "2607:f130:0:17d::1";
-          GatewayOnLink = true;
-        };
-        matchConfig.Name = "eth0";
+        address = "74.48.189.174";
+        prefixLength = 26;
       }
     ];
+    defaultGateway = {
+      address = "74.48.189.129";
+      interface = "eth0";
+    };
+    interfaces.eth0.ipv6.addresses = [
+      {
+        address = "2607:f130:0:17d::e1aa:3881";
+        prefixLength = 64;
+      }
+      {
+        address = "2607:f130:0:17d::fc7a:71c5";
+        prefixLength = 64;
+      }
+      {
+        address = "2607:f130:0:17d::4f60:7a23";
+        prefixLength = 64;
+      }
+    ];
+    defaultGateway6 = {
+      address = "2607:f130:0:17d::1";
+      interface = "eth0";
+    };
+    hostName = host;
   };
+
+#  # networking config
+#  systemd.network.networks.eth0 = {
+#    address = [
+#      "74.48.189.174/26"
+#      "2607:f130:0:17d::e1aa:3/128"
+#    ];
+#    gateway = [ "74.48.189.129" ];
+#    routes = [
+#      {
+#        routeConfig = {
+#          Gateway = "2607:f130:0:17d::1";
+#          GatewayOnLink = true;
+#        };
+#        matchConfig.Name = "eth0";
+#      }
+#    ];
+#  };
 
   # users
   users = {
