@@ -41,37 +41,6 @@
      };
   };
 
-#  # networking
-#  networking = {
-#    networkmanager.enable = true;
-#    usePredictableInterfaceNames = false;
-#    interfaces.eth0.ipv4.addresses = [
-#      {
-#        address = "74.48.189.174";
-#        prefixLength = 26;
-#      }
-#    ];
-#    defaultGateway = {
-#      address = "74.48.189.129";
-#      interface = "eth0";
-#    };
-#    interfaces.eth0.ipv6.addresses = [
-#      {
-#        address = "2607:f130:0:17d::e1aa:3881";
-#        prefixLength = 64;
-#      }
-#    ];
-#    defaultGateway6 = {
-#      address = "2607:f130:0:17d::1";
-#      interface = "eth0";
-#    };
-#    hostName = host;
-#  };
-
-#  # Enable networking
-#  networking.networkmanager.enable = true;
-#  networking.hostName = host;
-
   # systemd network config
   systemd.network = {
     enable = true;
