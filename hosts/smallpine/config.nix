@@ -14,19 +14,27 @@
   ];
 
   # boot
-  boot.kernelParams = [ "console=tty0" ];
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-
+  boot = {
+    kernelParams = [ "audit=0" "console=tty0" "net.ifnames=0" ];
+    loader = {
+      grub = {
+        enable = true;
+        device = "/dev/vda";
+      };
+    };
+  };
   #swap
   swapDevices = [{ device = "/swapfile"; size = 2048; }];
 
   # openssh
   services.openssh.enable = true;
   services.openssh.settings = {
+    AllowUsers = null;
     PermitRootLogin = "yes";
+    PasswordAuthentication = true;
     PubkeyAuthentication = "yes";
-    PasswordAuthentication = "yes";
+    UseDns = false;
+    X11Forwarding = false;
   };
 
   # Enable networking
