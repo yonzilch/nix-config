@@ -28,15 +28,17 @@
   swapDevices = [{ device = "/swapfile"; size = 2048; }];
 
   # openssh
-  services.openssh.enable = true;
-  services.openssh.settings = {
-    AllowUsers = null;
-    PermitRootLogin = "yes";
-    PasswordAuthentication = true;
-    PubkeyAuthentication = "yes";
-    UseDns = false;
-    X11Forwarding = false;
-  };
+  services.openssh{
+    enable = true;
+    ports = [ 222 ];
+     settings = {
+      AllowUsers = null;
+      PasswordAuthentication = true;
+      PermitRootLogin = "yes";
+      PubkeyAuthentication = "yes";
+      UseDns = false;
+      X11Forwarding = false;
+     };
 
   # networking
   networking = {
@@ -99,7 +101,7 @@
   users = {
     mutableUsers = false;
     users.root = {
-      initialHashedPassword = "$y$j9T$dCZKGGtp932RhwMuaua54.$qKlsBjVBe54nWMmVGcshCK1fOwZ9Y0I3bZldkNZ5bCD";
+      hashedPassword = "$y$j9T$ATQJxfn/twaY4pLkXC7hn1$a3PBgcfxaxjfFPV02m4k.5O3Bp2emRTVlexjUNsIJP2";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDX+DDGhCFLw2DHAOCo0mq62UvrghcfiofdMoOGa/eAK"
       ];
