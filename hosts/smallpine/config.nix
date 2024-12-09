@@ -15,7 +15,9 @@
 
   # boot
   boot = {
-    kernelParams = [ "audit=0" "console=tty0" "net.ifnames=0" ];
+    consoleLogLevel = 0;
+    kernelParams = [ "audit=0" "console=tty0" "net.ifnames=0" "noatime" "quiet" ];
+    initrd.verbose = false;
     loader = {
       grub = {
         enable = true;
