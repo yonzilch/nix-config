@@ -38,10 +38,6 @@
     X11Forwarding = false;
   };
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.hostName = host;
-
   # networking
   networking = {
     networkmanager.enable = true;
@@ -74,8 +70,13 @@
       address = "2607:f130:0:17d::1";
       interface = "eth0";
     };
+    hostName = host;
   };
 
+#  # Enable networking
+#  networking.networkmanager.enable = true;
+#  networking.hostName = host;
+#
 #  # networking config
 #  systemd.network.networks.eth0 = {
 #    address = [
