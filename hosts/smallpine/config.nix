@@ -85,7 +85,7 @@
       gateway = [ "74.48.189.129" ];
       routes = [
         {
-          routeConfig = {
+          routes = {
             Gateway = "2607:f130:0:17d::1";
             GatewayOnLink = true;
           };
