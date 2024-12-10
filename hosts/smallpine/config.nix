@@ -26,6 +26,9 @@
     };
   };
 
+  # hostname
+  networking.hostName = host;
+
   #swap
   swapDevices = [{ device = "/swapfile"; size = 2048; }];
 
