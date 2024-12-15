@@ -74,7 +74,7 @@
     users.root = {
       hashedPassword = "$y$j9T$ATQJxfn/twaY4pLkXC7hn1$a3PBgcfxaxjfFPV02m4k.5O3Bp2emRTVlexjUNsIJP2";
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDX+DDGhCFLw2DHAOCo0mq62UvrghcfiofdMoOGa/eAK"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDGr1+aAQayRKluZKPlmCgOWwkP1a+mKg55gKltSUxk3 crunchbits-2"
       ];
     };
   };
