@@ -13,7 +13,7 @@
     { nixpkgs, self, ... }@inputs:
     let
       system = "x86_64-linux";
-      host = "smallpine";
+      host = "crunchbits-1";
     in
     {
       nixosConfigurations = {
