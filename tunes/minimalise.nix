@@ -22,7 +22,6 @@
     man.enable = false;
     traceroute.enable = false;
     less.enable = false;
-    lessopen.enable = false;
   };
 
   # Minimize journal
