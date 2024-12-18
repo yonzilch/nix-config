@@ -36,7 +36,6 @@
 
   # Minimize services
   services = {
-    dbus.enable = false;
     nscd.enable = false;
     timesyncd.enable = false;
   };
