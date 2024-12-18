@@ -18,8 +18,6 @@
   # Disable unnecessary programs
   programs = {
     command-not-found.enable = false;
-    mtr.enable = false;
-    nano.enable = false;
   };
 
   # Minimize journal
@@ -40,6 +38,7 @@
   systemd = {
     enableEmergencyMode = false;
     services = {
+      dbus.enable = false;
       systemd-udev-settle.enable = false;
       systemd-journal-flush.enable = false;
     };
