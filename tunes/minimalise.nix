@@ -14,6 +14,7 @@
   # Minimize environment
   environment = {
     defaultPackages = lib.mkForce [ ];
+    systemPackages = lib.reject (p: p.name == "which") pkgs.defaultPackages;
   };
 
   # Disable unnecessary fonts
