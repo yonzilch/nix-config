@@ -17,11 +17,11 @@
 
   # Disable unnecessary programs
   programs = {
-    command-not-found.enable = false;
-    nano.enable = false;
-    man.enable = false;
-    traceroute.enable = false;
-    less.enable = false;
+    command-not-found.enable = lib.mkForce false;
+    nano.enable = lib.mkForce false;
+    man.enable = lib.mkForce false;
+    traceroute.enable = lib.mkForce false;
+    less.enable = lib.mkForce false;
   };
 
   # Minimize journal
