@@ -7,6 +7,8 @@ _: {
     };
     settings = {
       auto-optimise-store = true;
+      gc-keep-outputs = false;
+      gc-keep-derivations = false;
       experimental-features = [ "nix-command" "flakes" ];
     };
     optimise = {

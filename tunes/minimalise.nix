@@ -13,7 +13,7 @@
 
   # Minimize environment
   environment = {
-    defaultPackages = lib.mkForce [];
+    defaultPackages = lib.mkForce [ ];
   };
 
   # Disable unnecessary fonts
@@ -43,6 +43,7 @@
 
   # Minimize services
   services = {
+    logrotate.enable = false;
     nscd.enable = false;
     timesyncd.enable = false;
   };
