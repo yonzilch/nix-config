@@ -37,6 +37,7 @@
   # Minimize services
   services = {
     nscd.enable = false;
+    resolved.enable = false;
     timesyncd.enable = false;
   };
 
@@ -45,15 +46,21 @@
     enableEmergencyMode = false;
     oomd.enable = false;
     services = {
-      dbus.enable = false;
       systemd-journal-flush.enable = false;
       systemd-logind.enable = false;
       systemd-resolved.enable = false;
       systemd-udev-settle.enable = false;
     };
+    # Disable unused targets
+    targets = {
+      network-online.enable = false;
+      remote-fs.enable = false;
+      nss-lookup.enable = false;
+      nss-user-lookup.enable = false;
+    };
   };
 
-  # Disable NSS modules when disabling nscd
+  # Disable NSS modules
   system.nssModules = lib.mkForce [];
 
   # Disable desktop environment related services
