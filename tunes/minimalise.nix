@@ -6,6 +6,11 @@
 
   # Disable unnecessary documentation
   documentation.enable = false;
+  documentation.doc.enable = false;
+  documentation.info.enable = false;
+  documentation.html.enable = false;
+  documentation.man.enable = false;
+  documentation.nixos.enable = false;
 
   # Minimize environment
   environment = {
@@ -19,7 +24,6 @@
   programs = {
     command-not-found.enable = lib.mkForce false;
     nano.enable = lib.mkForce false;
-    man.enable = lib.mkForce false;
     traceroute.enable = lib.mkForce false;
     less.enable = lib.mkForce false;
   };
