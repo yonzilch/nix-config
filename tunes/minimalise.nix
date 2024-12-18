@@ -18,6 +18,8 @@
   # Disable unnecessary programs
   programs = {
     command-not-found.enable = false;
+    nano.enable = false;
+    system-sendmail.enable = false;
   };
 
   # Minimize journal
