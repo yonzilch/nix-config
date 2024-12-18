@@ -38,7 +38,7 @@
   services = {
     dbus.enable = false;
     nscd.enable = false;
-    systemd-timesyncd.enable = false;
+    timesyncd.enable = false;
   };
 
   # Minimize systemd services
