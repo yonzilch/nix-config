@@ -53,6 +53,9 @@
     };
   };
 
+  # Disable NSS modules when disabling nscd
+  system.nssModules = lib.mkForce [];
+
   # Disable desktop environment related services
   xdg = {
     autostart.enable = false;
