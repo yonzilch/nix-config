@@ -14,8 +14,11 @@
   # Minimize environment
   environment = {
     defaultPackages = lib.mkForce [ ];
-    systemPackages = lib.mkForce [ ];
-    };
+    noXlibs = lib.mkDefault true;
+    systemPackages = lib.mkForce (with pkgs; [
+      coreutils-full
+    ]);
+  };
 
   # Disable unnecessary fonts
   fonts.fontconfig.enable = false;
