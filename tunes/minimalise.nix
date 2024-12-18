@@ -14,7 +14,6 @@
   # Minimize environment
   environment = {
     defaultPackages = lib.mkForce [ ];
-    noXlibs = lib.mkDefault true;
     systemPackages = lib.mkForce (with pkgs; [
       coreutils-full
     ]);
