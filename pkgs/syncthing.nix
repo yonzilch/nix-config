@@ -1,8 +1,8 @@
 { config, pkgs, host, ...}:
 {
   services = {
-      syncthing = {
-          enable = true;
-      };
+    syncthing = {
+      enable = true;
+    };
   };
 }

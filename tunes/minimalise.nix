@@ -1,25 +1,25 @@
 { config, lib, pkgs, ... }:
 
 {
+  # Minimize boot
+  boot.tmp.cleanOnBoot = true;
+
   # Disable unnecessary documentation
   documentation.enable = false;
 
-  # Disable desktop environment related services
-  xdg = {
-    autostart.enable = false;
-    icons.enable = false;
-    menus.enable = false;
-    mime.enable = false;
-    sounds.enable = false;
+  # Minimize environment
+  environment = {
+    defaultPackages = lib.mkForce [];
   };
 
-  # Minimize systemd services
-  systemd = {
-    enableEmergencyMode = false;
-    services = {
-      systemd-udev-settle.enable = false;
-      systemd-journal-flush.enable = false;
-    };
+  # Disable unnecessary fonts
+  fonts.fontconfig.enable = false;
+
+  # Disable unnecessary programs
+  programs = {
+    command-not-found.enable = false;
+    mtr.enable = false;
+    nano.enable = false;
   };
 
   # Minimize journal
@@ -36,22 +36,22 @@
     '';
   };
 
-  # Disable unnecessary programs
-  programs = {
-    command-not-found.enable = false;
-    mtr.enable = false;
-    nano.enable = false;
+  # Minimize systemd services
+  systemd = {
+    enableEmergencyMode = false;
+    services = {
+      systemd-udev-settle.enable = false;
+      systemd-journal-flush.enable = false;
+    };
   };
 
-  # Minimize environment
-  environment = {
-    defaultPackages = lib.mkForce [];
-    systemPackages = with pkgs; [
-      # Add only essential packages here
-      curl
-    ];
+  # Disable desktop environment related services
+  xdg = {
+    autostart.enable = false;
+    icons.enable = false;
+    menus.enable = false;
+    mime.enable = false;
+    sounds.enable = false;
   };
 
-  # Disable unnecessary fonts
-  fonts.fontconfig.enable = false;
 }
