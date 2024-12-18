@@ -19,7 +19,10 @@
   programs = {
     command-not-found.enable = false;
     nano.enable = false;
-    system-sendmail.enable = false;
+    man.enable = false;
+    traceroute.enable = false;
+    less.enable = false;
+    lessopen.enable = false;
   };
 
   # Minimize journal
