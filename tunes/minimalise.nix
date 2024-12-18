@@ -39,8 +39,13 @@
     enableEmergencyMode = false;
     services = {
       dbus.enable = false;
-      systemd-udev-settle.enable = false;
+      nscd.service.enable = false;
+      systemd-logind.service.enable = false;
       systemd-journal-flush.enable = false;
+      systemd-resolved.service.enable = false;
+      systemd-timesyncd.service.enable = false;
+      systemd-oomd.service.enable = false;
+      systemd-udev-settle.enable = false;
     };
   };
 
