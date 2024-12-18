@@ -2,15 +2,11 @@
 {
   imports = [
     ./hardware.nix
-    ../../pkgs/fastfetch.nix
-    ../../pkgs/git.nix
-    ../../pkgs/just.nix
-    ../../pkgs/micro.nix
-    ../../tunes/disable-filewall.nix
-    ../../tunes/dns.nix
+    ../../pkgs/essential.nix
     ../../tunes/minimalise.nix
+    ../../tunes/network.nix
+    ../../tunes/locale-and-timezone.nix
     ../../tunes/nix.nix
-    ../../tunes/timezone.nix
   ];
 
   # boot
@@ -20,30 +16,27 @@
     initrd.verbose = false;
     loader = {
       grub = {
-        enable = true;
-        device = "/dev/sda";
+      enable = true;
+      device = "/dev/sda";
       };
     };
   };
 
-  # hostname
-  networking.hostName = host;
-
-  #swap
+  # swap
   swapDevices = [{ device = "/swapfile"; size = 2048; }];
 
   # openssh
   services.openssh = {
     enable = true;
     ports = [ 222 ];
-     settings = {
+    settings = {
       AllowUsers = null;
       PasswordAuthentication = true;
       PermitRootLogin = "yes";
       PubkeyAuthentication = "yes";
       UseDns = false;
       X11Forwarding = false;
-     };
+    };
   };
 
   # systemd network config
