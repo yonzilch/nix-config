@@ -47,7 +47,6 @@
     oomd.enable = false;
     services = {
       systemd-journal-flush.enable = false;
-      systemd-logind.enable = false;
       systemd-resolved.enable = false;
       systemd-udev-settle.enable = false;
     };
