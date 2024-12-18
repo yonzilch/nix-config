@@ -22,6 +22,16 @@ gc:
   sudo nix-collect-garbage --delete-older-than 7d
 
 
+list:
+  # list system packages
+  nix-store -qR /run/current-system | cat
+
+
+profile:
+  # show system profile
+  nix profile history --profile /nix/var/nix/profiles/system
+
+
 switch input:
   # let system rebuild and switch
   sudo nixos-rebuild switch --flake .#{{input}} --show-trace -L -v
