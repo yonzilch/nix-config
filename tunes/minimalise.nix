@@ -43,11 +43,11 @@
   # Minimize systemd services
   systemd = {
     enableEmergencyMode = false;
+    oomd.enable = false;
     services = {
       dbus.enable = false;
       systemd-journal-flush.enable = false;
       systemd-logind.enable = false;
-      systemd-oomd.enable = false;
       systemd-resolved.enable = false;
       systemd-udev-settle.enable = false;
     };
