@@ -47,8 +47,8 @@
       dbus.enable = false;
       systemd-journal-flush.enable = false;
       systemd-logind.enable = false;
-      systemd-resolved.service.enable = false;
-      systemd-oomd.service.enable = false;
+      systemd-oomd.enable = false;
+      systemd-resolved.enable = false;
       systemd-udev-settle.enable = false;
     };
   };
