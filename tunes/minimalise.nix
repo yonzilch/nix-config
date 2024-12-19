@@ -29,7 +29,6 @@
       enableLsColors = lib.mkForce false;
     };
     command-not-found.enable = lib.mkForce false;
-    less.enable = lib.mkForce false;
     nano.enable = lib.mkForce false;
   };
 

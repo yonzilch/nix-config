@@ -19,7 +19,8 @@ build:
 
 gc:
   # let system gc (remove unused packages, etc)
-  nix-collect-garbage --delete-older-than 7d
+  nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system
+  nix-collect-garbage --delete-old
 
 
 list:
