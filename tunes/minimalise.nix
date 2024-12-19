@@ -68,13 +68,12 @@
   system.nssModules = lib.mkForce [];
 
   # Disable swraid
+  disabledModules = [ "tasks/swraid.nix" ];
   boot.initrd.services.swraid = {
     enable = lib.mkEnableOption (lib.mdDoc "swraid support using mdadm") // {
       visible = false;
     };
     mdadmConf = lib.mkOption {
-      description = lib.mdDoc "Contents of {file}[/etc/mdadm.conf](cci:7://file:///etc/mdadm.conf:0:0-0:0) in initrd.";
-      type = lib.types.lines;
       default = "";
     };
   };
