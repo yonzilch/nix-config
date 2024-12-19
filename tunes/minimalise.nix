@@ -2,7 +2,10 @@
 
 {
   # Minimize boot
-  boot.tmp.cleanOnBoot = true;
+  boot = {
+    swraid.enable = lib.mkForce false;
+    tmp.cleanOnBoot = true;
+  };
 
   # Disable unnecessary documentation
   documentation.enable = false;
@@ -66,17 +69,6 @@
 
   # Disable NSS modules
   system.nssModules = lib.mkForce [];
-
-  # Disable swraid
-  disabledModules = [ "tasks/swraid.nix" ];
-  boot.initrd.services.swraid = {
-    enable = lib.mkEnableOption (lib.mdDoc "swraid support using mdadm") // {
-      visible = false;
-    };
-    mdadmConf = lib.mkOption {
-      default = "";
-    };
-  };
 
   # Disable desktop environment related services
   xdg = {
