@@ -16,6 +16,7 @@
     initrd.verbose = false;
     loader = {
       grub = {
+      configurationLimit = 10;
       enable = true;
       device = "/dev/sda";
       };
