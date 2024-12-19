@@ -34,7 +34,10 @@
   };
 
   #Disable security features
-  security.pam.services.su.forwardXAuth = lib.mkForce false;
+  security = {
+    pam.services.su.forwardXAuth = lib.mkForce false;
+    shadow.enable = lib.mkForce false;
+  };
 
   # Minimize journal
   services.journald = {
