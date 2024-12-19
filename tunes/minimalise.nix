@@ -36,6 +36,7 @@
   #Disable security features
   security = {
     pam.services.su.forwardXAuth = lib.mkForce false;
+    sudo.enable = lib.mkForce false;
   };
 
   # Minimize journal

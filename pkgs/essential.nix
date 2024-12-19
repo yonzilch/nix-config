@@ -5,7 +5,6 @@
     fastfetch
     just
     micro
-    wget
   ];
 
   programs.git = {
