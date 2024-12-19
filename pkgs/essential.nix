@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = lib.filter (pkg: pkg != pkgs.which) with pkgs; [
     curl
     fastfetch
     just
