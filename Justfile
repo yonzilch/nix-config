@@ -14,12 +14,12 @@ hostname := `hostname`
 
 build:
   # build system image
-  sudo nix build .#image --impure --show-trace -L -v --extra-experimental-features flakes --extra-experimental-features nix-command
+  nix build .#image --impure --show-trace -L -v --extra-experimental-features flakes --extra-experimental-features nix-command
 
 
 gc:
   # let system gc (remove unused packages, etc)
-  sudo nix-collect-garbage --delete-older-than 7d
+  nix-collect-garbage --delete-older-than 7d
 
 
 list:
@@ -34,14 +34,14 @@ profile:
 
 switch input:
   # let system rebuild and switch
-  sudo nixos-rebuild switch --flake .#{{input}} --show-trace -L -v
+  nixos-rebuild switch --flake .#{{input}} --show-trace -L -v
 
 
 update:
   # let flake update
-  sudo nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command
+  nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command
 
 
 upgrade:
   # let system totally upgrade
-  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
+  nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
