@@ -22,7 +22,7 @@
   # Disable unnecessary programs
   programs = {
     bash = {
-      enableCompletion = lib.mkForce false;
+      completion.enable = lib.mkForce false;
       enableLsColors = lib.mkForce false;
     };
     command-not-found.enable = lib.mkForce false;
@@ -66,6 +66,18 @@
 
   # Disable NSS modules
   system.nssModules = lib.mkForce [];
+
+  # Disable swraid
+  boot.initrd.services.swraid = {
+    enable = lib.mkEnableOption (lib.mdDoc "swraid support using mdadm") // {
+      visible = false;
+    };
+    mdadmConf = lib.mkOption {
+      description = lib.mdDoc "Contents of {file}[/etc/mdadm.conf](cci:7://file:///etc/mdadm.conf:0:0-0:0) in initrd.";
+      type = lib.types.lines;
+      default = "";
+    };
+  };
 
   # Disable desktop environment related services
   xdg = {
