@@ -21,11 +21,17 @@
 
   # Disable unnecessary programs
   programs = {
+    bash = {
+      enableCompletion = lib.mkForce false;
+      enableLsColors = lib.mkForce false;
+    };
     command-not-found.enable = lib.mkForce false;
-    nano.enable = lib.mkForce false;
-    traceroute.enable = lib.mkForce false;
     less.enable = lib.mkForce false;
+    nano.enable = lib.mkForce false;
   };
+
+  #Disable security features
+  security.pam.services.su.forwardXAuth = lib.mkForce false;
 
   # Minimize journal
   services.journald = {
