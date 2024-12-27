@@ -13,7 +13,10 @@
   boot = {
     consoleLogLevel = 0;
     kernelParams = [ "audit=0" "console=tty0" "net.ifnames=0" "noatime" "quiet" ];
-    initrd.verbose = false;
+    initrd = {
+      checkJournalingFS = false;
+      verbose = false;
+    };
     loader = {
       grub = {
       configurationLimit = 10;
