@@ -72,6 +72,7 @@
     services = {
       systemd-journal-flush.enable = lib.mkForce false;
       systemd-udev-settle.enable = lib.mkForce false;
+      systemd-udev-trigger.enable = lib.mkForce false;
     };
   };
 
