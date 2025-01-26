@@ -12,11 +12,11 @@
   };
 
   # Disable unnecessary documentation
-  documentation.enable = false;
-  documentation.doc.enable = false;
-  documentation.info.enable = false;
-  documentation.man.enable = false;
-  documentation.nixos.enable = false;
+  documentation.enable = lib.mkForce false;
+  documentation.doc.enable = lib.mkForce false;
+  documentation.info.enable = lib.mkForce false;
+  documentation.man.enable = lib.mkForce false;
+  documentation.nixos.enable = lib.mkForce false;
 
   # Minimize environment
   environment = {
@@ -24,7 +24,7 @@
   };
 
   # Disable unnecessary fonts
-  fonts.fontconfig.enable = false;
+  fonts.fontconfig.enable = lib.mkForce false;
 
   # Disable unnecessary programs
   programs = {
@@ -58,11 +58,11 @@
 
   # Minimize services
   services = {
-    fstrim.enable = false;
-    logrotate.enable = false;
-    nscd.enable = false;
+    fstrim.enable = lib.mkForce false;
+    logrotate.enable = lib.mkForce false;
+    nscd.enable = lib.mkForce false;
     resolved.enable = lib.mkForce false;
-    timesyncd.enable = false;
+    timesyncd.enable = lib.mkForce false;
   };
 
   # Minimize systemd services
@@ -71,7 +71,9 @@
     enableEmergencyMode = lib.mkForce false;
     oomd.enable = lib.mkForce false;
     services = {
+      mount-pstore.enable = lib.mkForce false;
       systemd-journal-flush.enable = lib.mkForce false;
+      systemd-pstore.enable = lib.mkForce false;
       systemd-udev-settle.enable = lib.mkForce false;
     };
   };
