@@ -58,7 +58,7 @@
 
   # Minimize services
   services = {
-    fstrim = false;
+    fstrim.enable = false;
     logrotate.enable = false;
     nscd.enable = false;
     timesyncd.enable = false;
