@@ -15,7 +15,7 @@ in
     kernel.sysctl = {
       "kernel.core_pattern" = "|/bin/false"; # Disable automatic core dumps
     };
-    kernelPackages = pkgs.linuxPackages_latest-libre;
+    kernelPackages = pkgs.linuxPackages_xanmod;
     kernelParams = [
       "audit=0"
       "console=tty0"
