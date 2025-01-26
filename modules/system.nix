@@ -13,8 +13,20 @@ in
       verbose = false;
     };
     kernel.sysctl = {
+      # bbr
+      "net.core.default_qdisc" = "fq";
+      "net.ipv4.tcp_congestion_control" = "bbr";
+
+      # DN42
+      "net.ipv4.ip_forward" = 1;
+      "net.ipv6.conf.default.forwarding" = 1;
+      "net.ipv6.conf.all.forwarding" = 1;
+      "net.ipv4.conf.default.rp_filter" = 0;
+      "net.ipv4.conf.all.rp_filter" = 0;
+
       "kernel.core_pattern" = "|/bin/false"; # Disable automatic core dumps
     };
+    kernelModules = [ "tcp_bbr" ];
     kernelPackages = pkgs.linuxPackages-libre;
     kernelParams = [
       "audit=0"
@@ -46,7 +58,7 @@ in
   };
 
   networking = {
-    firewall.enable = lib.mkForce false;
+    firewall.enable = lib.mkDefault false;
     hostName = hostname;
     nameservers = [ "127.0.0.1" "::1" ];
     networkmanager = {
