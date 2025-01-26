@@ -58,6 +58,7 @@ in
   };
 
   networking = {
+    dhcpcd.extraConfig = "nohook resolv.conf";
     firewall.enable = lib.mkDefault false;
     hostName = hostname;
     nameservers = [ "127.0.0.1" "::1" ];
