@@ -1,9 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ lib, ... }:
 
 {
   # Minimize boot
   boot = {
-    swraid.enable = lib.mkForce false;
+    initrd = {
+      checkJournalingFS = false;
+      includeDefaultModules = false;
+    };
+    bcache.enable = lib.mkForce false;
     tmp.cleanOnBoot = true;
   };
 
@@ -54,6 +58,7 @@
 
   # Minimize services
   services = {
+    fstrim = false;
     logrotate.enable = false;
     nscd.enable = false;
     timesyncd.enable = false;
@@ -61,11 +66,12 @@
 
   # Minimize systemd services
   systemd = {
-    enableEmergencyMode = false;
-    oomd.enable = false;
+    coredump.enable = lib.mkForce false;
+    enableEmergencyMode = lib.mkForce false;
+    oomd.enable = lib.mkForce false;
     services = {
-      systemd-journal-flush.enable = false;
-      systemd-udev-settle.enable = false;
+      systemd-journal-flush.enable = lib.mkForce false;
+      systemd-udev-settle.enable = lib.mkForce false;
     };
   };
 

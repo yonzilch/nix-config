@@ -1,5 +1,4 @@
-{ config, pkgs, host, ...}:
-{
+_: {
   services = {
     syncthing = {
       enable = true;

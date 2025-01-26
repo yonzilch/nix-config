@@ -5,21 +5,19 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs =
-    { nixpkgs, self, ... }@inputs:
+  outputs = inputs@{ nixpkgs, ... }:
     let
-      system = "x86_64-linux";
-      host = "crunchbits-1";
+      hostname = "example";
     in
     {
       nixosConfigurations = {
-        "${host}" = nixpkgs.lib.nixosSystem {
+        "${hostname}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
-            inherit host;
+            inherit hostname;
+            inherit inputs;
           };
           modules = [
-            ./hosts/${host}/config.nix
+            ./hosts/${hostname}/config.nix
           ];
         };
       };

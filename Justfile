@@ -1,26 +1,40 @@
-# just is a command runner, Justfile is very similar to Makefile, but simpler.
-
-# use nushell for shell commands
-#set shell := ["nu", "-c"]
-
 # set hostname environment
 hostname := `hostname`
 
-############################################################################
-#
-#  Common commands(suitable for all machines)
-#
-############################################################################
-
-build:
+build-image:
   # build system image
-  nix build .#image --impure --show-trace -L -v --extra-experimental-features flakes --extra-experimental-features nix-command
+  sudo nix build .#image --impure --show-trace -L -v --extra-experimental-features flakes --extra-experimental-features nix-command
+
+
+build input:
+  # build
+  sudo nixos-rebuild build --flake .#{{input}} --show-trace -L -v
+
+
+build-vm input:
+  # build a vm
+  sudo nixos-rebuild build-vm --flake .#{{input}} --show-trace -L -v
+
+
+clean-channels:
+  # remove nix-channel files
+  sudo rm -rf /nix/var/nix/profiles/per-user/root/channels /root/.nix-defexpr/channels
 
 
 gc:
   # let system gc (remove unused packages, etc)
-  nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system
-  nix-collect-garbage --delete-old
+  sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system
+  sudo nix-collect-garbage --delete-old
+
+
+ghc:
+  # generate hardware.nix
+  nixos-generate-config --show-hardware-config > ./hosts/{{hostname}}/hardware.nix
+
+
+install:
+  # install this flake
+  bash install.sh
 
 
 list:
@@ -30,19 +44,23 @@ list:
 
 profile:
   # show system profile
-  nix profile history --profile /nix/var/nix/profiles/system
+  sudo nix profile history --profile /nix/var/nix/profiles/system
 
 
 switch input:
   # let system rebuild and switch
-  nixos-rebuild switch --flake .#{{input}} --show-trace -L -v
+  sudo nixos-rebuild switch --flake .#{{input}} --show-trace -L -v
 
 
 update:
   # let flake update
-  nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command
+  sudo nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command
 
 
 upgrade:
   # let system totally upgrade
-  nixos-rebuild switch --flake .#{{hostname}} --show-trace -L -v
+  sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace
+
+upgrade-debug:
+  # let system totally upgrade (deBug Mode)
+  sudo unbuffer nixos-rebuild switch --flake .#{{hostname}} --log-format internal-json --show-trace -L -v |& nom --json
