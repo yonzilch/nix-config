@@ -62,6 +62,7 @@
     logrotate.enable = false;
     nscd.enable = false;
     timesyncd.enable = false;
+    udev.enable = false;
   };
 
   # Minimize systemd services
@@ -71,7 +72,6 @@
     oomd.enable = lib.mkForce false;
     services = {
       systemd-journal-flush.enable = lib.mkForce false;
-      systemd-udevd.service.enable = lib.mkForce false;
       systemd-udev-settle.enable = lib.mkForce false;
       systemd-udev-trigger.enable = lib.mkForce false;
     };
