@@ -66,6 +66,7 @@ in
       dns = "none";
       enable = lib.mkForce false;
     };
+    resolvconf.enable = lib.mkForce false;
     timeServers = [
       "nts.netnod.se"
       "nts.time.nl"
