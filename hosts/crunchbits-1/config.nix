@@ -4,7 +4,7 @@
     ./hardware.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules
-      ++ lib.filesystem.listFilesRecursive ../../packages/essential;
+      ++ lib.filesystem.listFilesRecursive ../../packages;
 
   # bootloader
   boot.loader.grub = {

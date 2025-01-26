@@ -7,7 +7,7 @@
 
   outputs = inputs@{ nixpkgs, ... }:
     let
-      hostname = "example";
+      hostname = "crunchbits-1";
     in
     {
       nixosConfigurations = {
