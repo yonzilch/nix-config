@@ -5,7 +5,7 @@ in
 {
   boot = {
     consoleLogLevel = 0;
-    extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt sp5100_tco";
+    extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
     initrd = {
       compressor = "zstd";
       compressorArgs = [ "-T0" "-19" "--long" ];
