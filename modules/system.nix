@@ -1,6 +1,6 @@
 { hostname, lib, pkgs, ... }:
 let
-  inherit (import ../../hosts/${hostname}/env.nix) TimeZone;
+  inherit (import ../hosts/${hostname}/env.nix) TimeZone;
 in
 {
   boot = {
