@@ -61,6 +61,7 @@
     fstrim.enable = false;
     logrotate.enable = false;
     nscd.enable = false;
+    resolved.enable = lib.mkForce false;
     timesyncd.enable = false;
   };
 
