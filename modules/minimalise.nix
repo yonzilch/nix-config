@@ -81,6 +81,7 @@
   # Disable desktop environment related services
   xdg = {
     autostart.enable = false;
+    enable = false;
     icons.enable = false;
     menus.enable = false;
     mime.enable = false;
