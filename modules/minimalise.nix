@@ -62,7 +62,6 @@
     logrotate.enable = false;
     nscd.enable = false;
     timesyncd.enable = false;
-    udev.enable = false;
   };
 
   # Minimize systemd services
