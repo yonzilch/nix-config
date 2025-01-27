@@ -11,6 +11,9 @@
     tmp.cleanOnBoot = true;
   };
 
+  # Disable Virtual Console Setup
+  console.enable = lib.mkForce false;
+
   # Disable unnecessary documentation
   documentation.enable = lib.mkForce false;
   documentation.doc.enable = lib.mkForce false;
