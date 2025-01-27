@@ -31,6 +31,7 @@ in
     kernelParams = [
       "audit=0"
       "console=tty0"
+      "debugfs=off"
       "net.ifnames=0"
       "erst_disable"
       "nmi_watchdog=0"
