@@ -76,7 +76,7 @@
       systemd-pstore.enable = lib.mkForce false;
       systemd-udev-settle.enable = lib.mkForce false;
       systemd-update-utmp.enable = lib.mkForce false;
-      systemd-user-sessions.service.enable = lib.mkForce false;
+      systemd-user-sessions.enable = lib.mkForce false;
       systemd-vconsole-setup.enable = lib.mkForce false;
     };
   };
