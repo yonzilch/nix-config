@@ -72,6 +72,7 @@
     oomd.enable = lib.mkForce false;
     services = {
       mount-pstore.enable = lib.mkForce false;
+      suid-sgid-wrappers.service.enable = lib.mkForce false;
       systemd-journal-flush.enable = lib.mkForce false;
       systemd-pstore.enable = lib.mkForce false;
       systemd-udev-settle.enable = lib.mkForce false;
