@@ -4,19 +4,16 @@
     ./hardware.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules
-      ++ lib.filesystem.listFilesRecursive ../../packages;
+      ++ lib.filesystem.listFilesRecursive ../../packages/essential;
 
-  # bootloader
   boot.loader.grub = {
     configurationLimit = 10;
     enable = true;
     device = "/dev/sda";
   };
 
-  # swap
   swapDevices = [{ device = "/swapfile"; size = 2048; }];
 
-  # systemd network config
   systemd.network = {
     enable = true;
     networks.eth0 = {
@@ -38,7 +35,6 @@
     };
   };
 
-  # users
   users = {
     mutableUsers = false;
     users.root = {

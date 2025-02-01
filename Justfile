@@ -32,11 +32,6 @@ ghc:
   nixos-generate-config --show-hardware-config > ./hosts/{{hostname}}/hardware.nix
 
 
-install:
-  # install this flake
-  bash install.sh
-
-
 list:
   # list system packages
   nix-store -qR /run/current-system | cat
