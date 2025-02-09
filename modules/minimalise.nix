@@ -3,12 +3,11 @@
 {
   # Minimize boot
   boot = {
+    bcache.enable = lib.mkForce false;
+    binfmt.addEmulatedSystemsToNixSandbox = lib.mkForce false;
     initrd = {
       checkJournalingFS = false;
-      includeDefaultModules = false;
     };
-    bcache.enable = lib.mkForce false;
-    tmp.cleanOnBoot = true;
   };
 
   # Disable unnecessary documentation
@@ -60,7 +59,7 @@
   services = {
     fstrim.enable = lib.mkForce false;
     logrotate.enable = lib.mkForce false;
-    nscd.enable = lib.mkForce false;
+    #nscd.enable = lib.mkForce false; # Disable this will make system.nssModules can not enable
     resolved.enable = lib.mkForce false;
     timesyncd.enable = lib.mkForce false;
   };
@@ -77,20 +76,19 @@
       systemd-udev-settle.enable = lib.mkForce false;
       systemd-update-utmp.enable = lib.mkForce false;
       systemd-user-sessions.enable = lib.mkForce false;
-      systemd-vconsole-setup.enable = lib.mkForce false;
     };
   };
 
   # Disable NSS modules
-  system.nssModules = lib.mkForce [];
+  #system.nssModules = lib.mkForce []; # Enable this will make cockpit can not run
 
   # Disable desktop environment related services
   xdg = {
-    autostart.enable = false;
-    icons.enable = false;
-    menus.enable = false;
-    mime.enable = false;
-    sounds.enable = false;
+    autostart.enable = lib.mkForce false;
+    icons.enable = lib.mkForce false;
+    menus.enable = lib.mkForce false;
+    mime.enable = lib.mkForce false;
+    sounds.enable = lib.mkForce false;
   };
 
 }

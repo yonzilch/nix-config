@@ -55,3 +55,7 @@ update:
 upgrade:
   # let system totally upgrade
   nixos-rebuild switch --flake .#{{hostname}} --show-trace
+
+deploy input:
+  # perform a remote deploy
+  nixos-rebuild switch --flake .#{{input}} --target-host root@{{input}} -v

@@ -39,6 +39,7 @@ in
       "nowatchdog"
       "quiet"
     ];
+    tmp.cleanOnBoot = true;
   };
 
   console.keyMap = "us";

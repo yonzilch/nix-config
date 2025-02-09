@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware.nix
+    ../../packages/optional/cockpit.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules
       ++ lib.filesystem.listFilesRecursive ../../packages/essential;
@@ -31,8 +32,9 @@
   users = {
     mutableUsers = false;
     users.root = {
+      hashedPassword = "$6$swwPXC2doG1mupkP$JTTaVc2mgHs./ZgT3XLTv/e/ld9BBMseiLL5q4/hk2aepQ0v.5Sak4KcWFjREYo1SJ/hK4tjl.ALdY9Vdl.fd1";
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA70TpRKDOXUlJzxc0366+h5+rlVy40wWieA6qn6k2DG"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM/fSAuDnRobkDNot+FFXwigu989reUVg2z3Vakq8wsu root@atlantic"
       ];
     };
   };
