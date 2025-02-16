@@ -27,7 +27,7 @@ in
       "kernel.core_pattern" = "|/bin/false"; # Disable automatic core dumps
     };
     kernelModules = [ "tcp_bbr" ];
-    kernelPackages = pkgs.linuxPackages-libre;
+    kernelPackages = pkgs.linuxPackages;
     kernelParams = [
       "audit=0"
       "console=tty0"
