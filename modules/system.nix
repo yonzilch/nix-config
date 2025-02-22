@@ -4,7 +4,7 @@ let
 in
 {
   boot = {
-    consoleLogLevel = 0;
+    consoleLogLevel = lib.mkForce 0;
     extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
     initrd = {
       compressor = "zstd";
@@ -39,6 +39,11 @@ in
       "nowatchdog"
       "quiet"
     ];
+    loader.grub = {
+      configurationLimit = 10;
+      enable = true;
+      device = "nodev";
+    };
     tmp.cleanOnBoot = true;
   };
 

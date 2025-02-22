@@ -1,17 +1,11 @@
 { lib, ... }:
 {
   imports = [
+    ./disko.nix
     ./hardware.nix
-    ../../packages/optional/cockpit.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules
       ++ lib.filesystem.listFilesRecursive ../../packages/essential;
-
-  boot.loader.grub = {
-    configurationLimit = 10;
-    enable = true;
-    device = "/dev/sda";
-  };
 
   swapDevices = [{ device = "/swapfile"; size = 2048; }];
 

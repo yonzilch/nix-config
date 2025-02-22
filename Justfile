@@ -60,3 +60,8 @@ upgrade:
 deploy input:
   # perform a remote deploy
   nixos-rebuild switch --flake .#{{input}} --target-host root@{{input}} -v
+
+
+anywhere input:
+  # perform nixos-anywhere install
+  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}}

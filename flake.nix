@@ -2,11 +2,15 @@
   description = "NixOS Server Configurations";
 
   inputs = {
+    disko = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/disko";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     vaultix.url = "github:milieuim/vaultix";
   };
 
-  outputs = inputs@{ nixpkgs, vaultix, ... }:
+  outputs = inputs@{ disko, nixpkgs, vaultix, ... }:
   let
     hostname = "atlantic";
   in
@@ -19,7 +23,7 @@
         };
         modules = [
           ./hosts/${hostname}/config.nix
-          vaultix.nixosModules.vaultix
+          disko.nixosModules.disko
         ];
       };
     };
