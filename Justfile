@@ -65,3 +65,7 @@ deploy input:
 anywhere input:
   # perform nixos-anywhere install
   nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hosts/{{input}}/hardware.nix --flake .#{{input}} --target-host root@{{input}}
+
+anywhere-test input:
+  # test nixos-anywhere install in local vm
+  nix run github:nix-community/nixos-anywhere -- --flake .#{{input}} --vm-test
