@@ -3,7 +3,7 @@
   imports = [
     ./disko.nix
     ./hardware.nix
-    ./network.nix
+    ../../git-agecrypt/atlantic-network.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules
       ++ lib.filesystem.listFilesRecursive ../../packages/essential;

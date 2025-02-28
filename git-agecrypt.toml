@@ -1,4 +1,4 @@
 [config]
-"/hosts/atlantic/network.nix" = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3A8qifDEoBlF6vy9cWXKWF+ml2ZFNfCSv0Ai+SvspK github@yonzilch.com",
-]
+"git-agecrypt/atlantic-network.nix" = ["age1dh5gpa370ykhnwrmvf2ew0s2g5xwq4w3rw8sv3kxrf4fy34heqks7tpa09"]
+"git-agecrypt/**" = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3A8qifDEoBlF6vy9cWXKWF+ml2ZFNfCSv0Ai+SvspK github@yonzilch.com"]
+"git-agecrypt/network.nix" = ["age1dh5gpa370ykhnwrmvf2ew0s2g5xwq4w3rw8sv3kxrf4fy34heqks7tpa09"]
