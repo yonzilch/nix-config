@@ -84,7 +84,7 @@ in
   services = {
     openssh = {
       enable = true;
-      ports = [ 222 ];
+      ports = [ 22 ];
       settings = {
         AllowUsers = null;
         PasswordAuthentication = false;
