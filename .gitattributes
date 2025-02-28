@@ -1,1 +1,1 @@
-./hosts/atlantic/network.nix filter=git-agecrypt diff=git-agecrypt
+hosts/atlantic/network.nix filter=git-agecrypt diff=git-agecrypt
