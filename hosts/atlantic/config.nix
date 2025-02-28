@@ -3,25 +3,12 @@
   imports = [
     ./disko.nix
     ./hardware.nix
+    ./network.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules
       ++ lib.filesystem.listFilesRecursive ../../packages/essential;
 
   swapDevices = [{ device = "/swapfile"; size = 2048; }];
-
-  systemd.network = {
-    enable = true;
-    networks.eth0 = {
-      address = [
-        "103.47.224.225/22"
-      ];
-      gateway = [ "103.47.224.1" ];
-      matchConfig.Name = "eth0";
-      networkConfig = {
-        IPv6AcceptRA = false;
-      };
-    };
-  };
 
   users = {
     mutableUsers = false;

@@ -1,4 +1,5 @@
-_: {
+{ pkgs, ... }:
+{
   nix = {
     gc = {
       automatic = true;
@@ -10,6 +11,8 @@ _: {
       gc-keep-outputs = false;
       gc-keep-derivations = false;
       experimental-features = [ "nix-command" "flakes" ];
+      extra-builtins-file = [ ../libs/extra-builtins.nix ];
+      plugin-files = "${pkgs.nix-plugins}/lib/nix/plugins";
     };
     optimise = {
       automatic = true;
