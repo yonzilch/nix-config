@@ -5,7 +5,7 @@ hostname := `hostname`
 
 update:
   # let flake update
-  sudo nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command
+  nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command
 
 
 upgrade:
