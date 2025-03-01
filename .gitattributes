@@ -1,1 +1,1 @@
-git-agecrypt/** filter=git-agecrypt diff=git-agecrypt
+**/secret diff=sopsdiffer

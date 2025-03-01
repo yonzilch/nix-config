@@ -1,4 +1,0 @@
-[config]
-"git-agecrypt/**" = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3A8qifDEoBlF6vy9cWXKWF+ml2ZFNfCSv0Ai+SvspK github@yonzilch.com",
-]

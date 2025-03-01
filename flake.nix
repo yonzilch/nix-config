@@ -1,31 +1,31 @@
 {
-  description = "NixOS Server Configurations";
+  description = "NixOS server config (powered by clan)";
 
-  inputs = {
-    disko = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:nix-community/disko";
-    };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    vaultix.url = "github:milieuim/vaultix";
-  };
+  inputs.clan-core.url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+  inputs.nixpkgs.follows = "clan-core/nixpkgs";
 
-  outputs = inputs@{ disko, nixpkgs, vaultix, ... }:
+  outputs =
+  { self, clan-core, ... }:
   let
-    hostname = "atlantic";
+    clan = clan-core.lib.buildClan {
+      inherit self;
+      meta.name = "nixos-server";
+    };
   in
   {
-    nixosConfigurations = {
-      "${hostname}" = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit hostname;
-          inherit inputs;
-        };
-        modules = [
-          ./hosts/${hostname}/config.nix
-          disko.nixosModules.disko
-        ];
+    inherit (clan) nixosConfigurations clanInternals;
+    devShells =
+    clan-core.inputs.nixpkgs.lib.genAttrs
+    [
+      "x86_64-linux"
+      "aarch64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ]
+    (system: {
+      default = clan-core.inputs.nixpkgs.legacyPackages.${system}.mkShell {
+        packages = [ clan-core.packages.${system}.clan-cli ];
       };
-    };
+    });
   };
 }

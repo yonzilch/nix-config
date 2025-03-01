@@ -1,3 +1,0 @@
-{
-  TimeZone = "Asia/Singapore";
-}
