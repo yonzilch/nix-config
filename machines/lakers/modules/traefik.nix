@@ -3,14 +3,15 @@
   ...
 }:
 {
-  systemd.services.traefik.environment = {
-    # Please check this url https://go-acme.github.io/lego/dns/
-    CF_API_EMAIL_FILE = config.sops.secrets.cf-email.path;
-    CF_ZONE_API_TOKEN_FILE = config.sops.secrets.cf-zone-api-token.path;
+  sops.secrets.lakers-traefik-environment = {
+    mode = "0440";
+    owner = config.users.users.traefik.name;
+    group = config.users.users.traefik.group;
   };
 
   services.traefik = {
     enable = true;
+    environmentFiles = [ config.sops.secrets.lakers-traefik-environment.path ];
     staticConfigOptions = {
       # Disable the Traefik dashboard
       api.dashboard = false;

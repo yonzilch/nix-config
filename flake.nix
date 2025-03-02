@@ -9,7 +9,7 @@
   let
     clan = clan-core.lib.buildClan {
       inherit self;
-      meta.name = "nixos-server";
+      meta.name = "yzlab";
 
       machines = {
         "example" = {
