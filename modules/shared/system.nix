@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 {
   boot = {
-    consoleLogLevel = lib.mkForce 0;
+    consoleLogLevel = lib.mkForce 0; # Disable console log
     extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
     initrd = {
       compressor = "zstd";
@@ -24,7 +24,7 @@
       "net.ipv4.conf.all.rp_filter" = 0;
     };
     kernelModules = [ "tcp_bbr" ];
-    kernelPackages = pkgs.linuxPackages_libre;
+    kernelPackages = pkgs.linuxPackages-libre;
     kernelParams = [
       "audit=0"
       "console=tty0"

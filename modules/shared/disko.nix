@@ -42,6 +42,7 @@ in
                 type = "filesystem";
                 format = "xfs";
                 mountpoint = "/";
+                mountOptions = [ "noatime" "nosuid" "nodev" ];
               };
             };
           };

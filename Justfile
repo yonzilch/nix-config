@@ -3,6 +3,12 @@ hostname := `hostname`
 
 
 
+gc:
+  # let system gc (remove unused packages, etc)
+  sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system
+  sudo nix-collect-garbage --delete-old
+
+
 update:
   # let flake update
   nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command
@@ -18,7 +24,7 @@ install input:
 
 
 deploy input:
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ; git add . ; clan machines update {{input}} ; ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
+  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ; git add . ; clan machines update {{input}} --debug ; ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
 
 
 encrypt input:

@@ -10,7 +10,6 @@
 
   clan.core.networking = {
     targetHost = "root@atlantic";
-    zerotier.controller.enable = true;
   };
 
   disko.devices.disk.main.device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-0-0";
