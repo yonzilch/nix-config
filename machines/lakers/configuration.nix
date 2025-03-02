@@ -4,6 +4,7 @@
 }:
 {
   imports = [
+    ../../sops/eval/atlantic/neko.nix
     ../../sops/eval/lakers/network.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules/shared;
