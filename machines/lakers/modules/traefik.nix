@@ -29,8 +29,8 @@
           http.tls = {
             certResolver = "myresolver";
             domains = {
-              main = "example.com";
-              sans = [ "*.example.com" ];
+              main = "yzlab.eu.org";
+              sans = [ "*.yzlab.eu.org" ];
             };
           };
         };
