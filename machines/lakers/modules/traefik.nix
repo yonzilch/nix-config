@@ -51,6 +51,12 @@
       http = {
         middlewares.auth.basicauth.users = "yzlab:$2y$10$JJUlCb904PhKLQLFlDTt1eG2Sf93f5QuYCDgKTQpVy4Rcery8tgsu";
         routers = {
+          alist = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`share.yon.im`)";
+            service = "alist";
+            tls.certresolver = "myresolver";
+          };
           wakapi = {
             entryPoints = [ "websecure" ];
             rule = "Host(`wakapi.yzlab.eu.org`)";
@@ -60,6 +66,15 @@
           };
         };
         services = {
+          alist = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://localhost:5244";
+                }
+              ];
+            };
+          };
           wakapi = {
             loadBalancer = {
               servers = [

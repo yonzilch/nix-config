@@ -4,13 +4,16 @@
 }:
 {
   imports = [
+    ./modules/alist.nix
     ./modules/traefik.nix
     ./modules/wakapi.nix
 
     ../../sops/eval/lakers/neko.nix
     ../../sops/eval/lakers/network.nix
     ]
+      ++ lib.filesystem.listFilesRecursive ../../modules/options
       ++ lib.filesystem.listFilesRecursive ../../modules/shared;
+
 
   clan.core.networking = {
     targetHost = "root@lakers";

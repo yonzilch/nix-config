@@ -65,24 +65,34 @@
 
   networking = {
     dhcpcd.extraConfig = "nohook resolv.conf";
-    firewall.enable = lib.mkDefault false;
+    firewall = {
+      enable = lib.mkDefault true;
+      allowedTCPPorts = [
+        443
+      ];
+      allowedUDPPorts = [
+        443
+      ];
+    };
     nameservers = [ "127.0.0.1" "::1" ];
     networkmanager = {
       dns = "none";
       enable = lib.mkForce false;
     };
+    nftables.enable = true;
     resolvconf.enable = lib.mkForce false;
     timeServers = [
       "ntppool1.time.nl"
       "ntppool2.time.nl"
       "ntp.ripe.net"
     ];
-    useDHCP = lib.mkForce false;
+    useDHCP = lib.mkDefault true;
   };
 
   services = {
     openssh = {
       enable = true;
+      openFirewall = true;
       ports = [ 22 ];
       settings = {
         AllowUsers = null;

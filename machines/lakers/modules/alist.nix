@@ -1,0 +1,5 @@
+{
+  services.alist = {
+    enable = true;
+  };
+}
