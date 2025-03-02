@@ -4,7 +4,10 @@
 }:
 {
   imports = [
-    ../../sops/eval/atlantic/neko.nix
+    ./modules/traefik.nix
+    ./modules/wakapi.nix
+
+    ../../sops/eval/lakers/neko.nix
     ../../sops/eval/lakers/network.nix
     ]
       ++ lib.filesystem.listFilesRecursive ../../modules/shared;
