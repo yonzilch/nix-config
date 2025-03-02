@@ -10,10 +10,11 @@
 
   clan.core.networking = {
     targetHost = "root@lakers";
-    zerotier.controller.enable = true;
   };
 
   disko.devices.disk.main.device = "/dev/vda";
+
+  swapDevices = [{ device = "/swapfile"; size = 2048; }];
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''

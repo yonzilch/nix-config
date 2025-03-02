@@ -1,3 +1,3 @@
 {
-  TimeZone = "America/Chicago";
+  TimeZone = "Asia/Singapore";
 }

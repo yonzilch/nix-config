@@ -10,6 +10,12 @@
     clan = clan-core.lib.buildClan {
       inherit self;
       meta.name = "nixos-server";
+
+      machines = {
+        "example" = {
+            clan.deployment.requireExplicitUpdate = true;
+        };
+      };
     };
   in
   {

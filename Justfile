@@ -27,6 +27,10 @@ deploy input:
   ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ; git add . ; clan machines update {{input}} --debug ; ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
 
 
+deploy-all:
+  ls sops/eval/**/*.nix | xargs -n 1 sops -d -i ; git add . ; clan machines update --debug ; ls sops/eval/**/*.nix | xargs -n 1 sops -e -i
+
+
 encrypt input:
   ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
 

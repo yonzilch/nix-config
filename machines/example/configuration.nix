@@ -1,0 +1,25 @@
+{
+  lib,
+  ...
+}:
+{
+  imports = [
+    # ../../sops/eval/example/xxxxxx.nix
+    ]
+      ++ lib.filesystem.listFilesRecursive ../../modules/shared;
+
+  clan.core.networking = {
+    targetHost = "root@example";
+    # zerotier.controller.enable = true;
+  };
+
+  disko.devices.disk.main.device = "/dev/disk/by-id/xxxxxx";
+
+  # swapDevices = [{ device = "/swapfile"; size = 2048; }];
+
+  users.users.root.openssh.authorizedKeys.keys = [
+    ''
+      ssh-ed25519  xxxxxxxxxxxx
+    ''
+  ];
+}
