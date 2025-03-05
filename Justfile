@@ -19,6 +19,11 @@ upgrade:
   sudo nixos-rebuild switch --flake .#{{hostname}} --show-trace
 
 
+rebuild input:
+  # perform a remote rebuild
+  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ; git add . ; nixos-rebuild switch --flake .#{{input}} --target-host root@{{input}} -v ; ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
+
+
 install input:
   ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ; git add . ; clan machines install {{input}} --target-host {{input}} --update-hardware-config nixos-facter ; ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
 
