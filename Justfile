@@ -9,6 +9,10 @@ gc:
   sudo nix-collect-garbage --delete-old
 
 
+keygen:
+  clan secrets key generate
+
+
 update:
   # let flake update
   nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command
