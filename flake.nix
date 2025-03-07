@@ -13,7 +13,10 @@
 
       machines = {
         "example" = {
-            clan.deployment.requireExplicitUpdate = true;
+          clan.deployment.requireExplicitUpdate = true;
+        };
+        "azure-hight" = {
+          clan.deployment.requireExplicitUpdate = true;
         };
       };
     };
