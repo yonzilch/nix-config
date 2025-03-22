@@ -1,16 +1,13 @@
 {
   description = "NixOS server config (powered by clan)";
-
   inputs.clan-core.url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
   inputs.nixpkgs.follows = "clan-core/nixpkgs";
-
   outputs =
   { self, clan-core, ... }:
   let
     clan = clan-core.lib.buildClan {
       inherit self;
       meta.name = "yzlab";
-
       machines = {
         "example" = {
           clan.deployment.requireExplicitUpdate = true;
@@ -33,7 +30,13 @@
     ]
     (system: {
       default = clan-core.inputs.nixpkgs.legacyPackages.${system}.mkShell {
-        packages = [ clan-core.packages.${system}.clan-cli ];
+        packages = [
+          clan-core.packages.${system}.clan-cli
+          clan-core.inputs.nixpkgs.legacyPackages.${system}.alejandra
+          clan-core.inputs.nixpkgs.legacyPackages.${system}.commitlint-rs
+          clan-core.inputs.nixpkgs.legacyPackages.${system}.deadnix
+          clan-core.inputs.nixpkgs.legacyPackages.${system}.sops
+        ];
       };
     });
   };
