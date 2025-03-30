@@ -24,7 +24,7 @@
       "net.ipv4.conf.all.rp_filter" = 0;
     };
     kernelModules = [ "tcp_bbr" ];
-    kernelPackages = pkgs.linuxPackages-libre;
+    kernelPackages = pkgs.linuxPackages_6_12;
     kernelParams = [
       "audit=0"
       "console=tty0"
@@ -103,46 +103,42 @@
         X11Forwarding = false;
       };
     };
-    stubby = {
+    unbound = {
       enable = true;
-      settings = pkgs.stubby.passthru.settingsExample // {
-        resolution_type = "GETDNS_RESOLUTION_STUB";
-        dns_transport_list = ["GETDNS_TRANSPORT_TLS"];
-        tls_authentication = "GETDNS_AUTHENTICATION_REQUIRED";
-        tls_query_padding_blocksize = 256;
-        edns_client_subnet_private = 1;
-        idle_timeout = 10000;
-        listen_addresses = ["127.0.0.1" "0::1"];
-        round_robin_upstreams = 1;
-        upstream_recursive_servers = [{
-          address_data = "185.222.222.222";
-          tls_auth_name = "dot.sb";
-          tls_pubkey_pinset = [{
-            digest = "sha256";
-            value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
-          }];
-        } {
-          address_data = "45.11.45.11";
-          tls_auth_name = "dot.sb";
-          tls_pubkey_pinset = [{
-            digest = "sha256";
-            value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
-          }];
-        } {
-          address_data = "2a09::";
-          tls_auth_name = "dot.sb";
-          tls_pubkey_pinset = [{
-            digest = "sha256";
-            value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
-          }];
-        } {
-          address_data = "2a11::";
-          tls_auth_name = "dot.sb";
-          tls_pubkey_pinset = [{
-            digest = "sha256";
-            value = "amEjS6OJ74LvhMNJBxN3HXxOMSWAriaFoyMQn/Nb5FU=";
-          }];
-        }];
+      settings = {
+        server = {
+          do-ip4 = true;
+          do-ip6 = true;
+          do-tcp = true;
+          do-udp = true;
+          hide-identity = true;
+          hide-version = true;
+          interface = ["127.0.0.1" "::1"];
+          num-threads = 2;
+          prefetch = true;
+          qname-minimisation = true;
+          use-syslog = true;
+          verbosity = 1;
+        };
+        forward-zone = [
+          {
+            forward-addr = [
+              # dns.sb servers
+              "185.222.222.222@853#dot.sb"
+              "45.11.45.11@853#dot.sb"
+              "2a09::@853#dot.sb"
+              "2a11::@853#dot.sb"
+
+              # quad9 servers
+              "9.9.9.9@853#dns.quad9.net"
+              "149.112.112.112@853#dns.quad9.net"
+              "2620:fe::fe@853#dns.quad9.net"
+              "2620:fe::9@853#dns.quad9.net"
+            ];
+            forward-tls-upstream = true;
+            name = ".";
+          }
+        ];
       };
     };
   };

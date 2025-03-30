@@ -21,12 +21,12 @@ in
         content = {
           type = "gpt";
           partitions = {
-            "boot" = {
+            boot = {
               size = "1M";
-              type = "EF02"; # for grub MBR
+              type = "EF02";
               priority = 1;
             };
-            "ESP" = {
+            ESP = {
               size = "256M";
               type = "EF00";
               content = {
@@ -36,16 +36,45 @@ in
                 mountOptions = [ "nofail" ];
               };
             };
-            "root" = {
+            zfs = {
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "xfs";
-                mountpoint = "/";
-                mountOptions = [ "noatime" "nosuid" "nodev" ];
+                type = "zfs";
+                pool = "zroot";
               };
             };
           };
+        };
+      };
+    };
+    zpool = {
+      zroot = {
+        type = "zpool";
+        datasets = {
+          "root" = {
+            mountpoint = "/";
+            options = {
+              mountpoint = "legacy";
+              "com.sun:auto-snapshot" = "false";
+            };
+            type = "zfs_fs";
+          };
+          "root/nix" = {
+            mountpoint = "/nix";
+            options."com.sun:auto-snapshot" = "false";
+            type = "zfs_fs";
+          };
+        };
+        options = {
+          ashift = "12";
+          compatibility = "grub2";
+        };
+        rootFsOptions = {
+          acltype = "posixacl";
+          atime = "off";
+          compression = "lz4";
+          mountpoint = "none";
+          xattr = "sa";
         };
       };
     };

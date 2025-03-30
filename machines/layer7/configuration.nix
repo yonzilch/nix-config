@@ -13,7 +13,7 @@
     targetHost = "root@layer7";
   };
 
-  disko.devices.disk.main.device = "/dev/vda";
+  disko.devices.disk.main.device = "/dev/disk/by-path/virtio-pci-0000:00:0a.0";
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''

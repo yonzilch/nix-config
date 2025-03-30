@@ -4,16 +4,17 @@
 }:
 {
   imports = [
-    ../../sops/eval/victoria/neko.nix
-    ../../sops/eval/victoria/network.nix
     ]
-      ++ lib.filesystem.listFilesRecursive ../../modules/shared;
+      ++ lib.filesystem.listFilesRecursive ../../modules/shared
+      ++ lib.filesystem.listFilesRecursive ../../sops/eval/victoria;
 
   clan.core.networking = {
     targetHost = "root@victoria";
   };
 
-  disko.devices.disk.main.device = "/dev/vda";
+  disko.devices.disk.main.device = "/dev/disk/by-path/virtio-pci-0000:00:07.0";
+
+  networking.hostId = "e0bd60c0";
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''

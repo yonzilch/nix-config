@@ -2,6 +2,20 @@
 hostname := `hostname`
 
 
+anywhere input:
+  # perform nixos-anywhere install
+  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./machines/{{input}}/hardware-configuration.nix --flake .#{{input}} --target-host root@{{input}}
+
+
+anywhere-lb input:
+  # perform nixos-anywhere install (local builder)
+  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./machines/{{input}}/hardware-configuration.nix --flake .#{{input}} --target-host root@{{input}} --build-on local
+
+
+anywhere-vm input:
+  # test nixos-anywhere install in local vm
+  nix run github:nix-community/nixos-anywhere -- --flake .#{{input}} --vm-test
+
 
 gc:
   # let system gc (remove unused packages, etc)
