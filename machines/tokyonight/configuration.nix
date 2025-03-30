@@ -13,7 +13,7 @@
     targetHost = "root@tokyonight";
   };
 
-  disko.devices.disk.main.device = "/dev/vda";
+  disko.devices.disk.main.device = "/dev/disk/by-path/virtio-pci-0000:00:07.0";
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''

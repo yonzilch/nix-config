@@ -61,7 +61,7 @@
     logrotate.enable = lib.mkForce false;
     #nscd.enable = lib.mkForce false; # Disable this will make system.nssModules can not enable
     resolved.enable = lib.mkForce false;
-    #timesyncd.enable = lib.mkForce false; # Disable this may cause wrong time
+    timesyncd.enable = lib.mkForce false;
   };
 
   # Minimize systemd services

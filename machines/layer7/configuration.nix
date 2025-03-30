@@ -4,10 +4,10 @@
 }:
 {
   imports = [
-    ../../sops/eval/layer7/neko.nix
-    ../../sops/eval/layer7/network.nix
     ]
-      ++ lib.filesystem.listFilesRecursive ../../modules/shared;
+      ++ lib.filesystem.listFilesRecursive ../../modules/shared
+      ++ lib.filesystem.listFilesRecursive ../../sops/eval/layer7;
+
 
   clan.core.networking = {
     targetHost = "root@layer7";

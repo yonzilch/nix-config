@@ -1763,11 +1763,11 @@
           "range": 16
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/10",
+          "/dev/disk/by-diskseq/11",
           "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi3-0-0-2",
           "/dev/disk/by-label/cidata",
           "/dev/disk/by-path/pci-0000:0a:00.0-scsi-0:0:0:2",
-          "/dev/disk/by-uuid/2025-02-25-15-49-22-00",
+          "/dev/disk/by-uuid/2025-03-30-08-47-34-00",
           "/dev/sdb"
         ],
         "unix_device_name2": "/dev/sg1",
@@ -1858,7 +1858,7 @@
           "range": 16
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/9",
+          "/dev/disk/by-diskseq/10",
           "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-0-0",
           "/dev/disk/by-path/pci-0000:04:00.0-scsi-0:0:0:0",
           "/dev/sda"
@@ -2022,7 +2022,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.16 xhci-hcd",
+          "name": "Linux 6.12.19 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2036,7 +2036,7 @@
           "value": 0
         },
         "serial": "0000:05:00.0",
-        "model": "Linux 6.12.16 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.19 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.3/0000:05:00.0/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
         "resources": [
@@ -2105,7 +2105,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.16 xhci-hcd",
+          "name": "Linux 6.12.19 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2119,7 +2119,7 @@
           "value": 0
         },
         "serial": "0000:05:00.0",
-        "model": "Linux 6.12.16 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.12.19 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.3/0000:05:00.0/usb2/2-0:1.0",
         "sysfs_bus_id": "2-0:1.0",
         "detail": {
@@ -2516,29 +2516,6 @@
     "network_interface": [
       {
         "index": 51,
-        "attached_to": 0,
-        "class_list": [
-          "network_interface"
-        ],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Loopback",
-          "value": 0
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_name": "lo",
-        "unix_device_names": [
-          "lo"
-        ]
-      },
-      {
-        "index": 52,
         "attached_to": 40,
         "class_list": [
           "network_interface"
@@ -2577,6 +2554,29 @@
         ],
         "driver_modules": [
           "virtio_net"
+        ]
+      },
+      {
+        "index": 52,
+        "attached_to": 0,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "unix_device_name": "lo",
+        "unix_device_names": [
+          "lo"
         ]
       }
     ],
@@ -3107,7 +3107,7 @@
         ],
         "detail": {
           "function": 0,
-          "command": 1287,
+          "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 22,
@@ -3198,7 +3198,7 @@
         ],
         "detail": {
           "function": 0,
-          "command": 1287,
+          "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 22,
@@ -3289,7 +3289,7 @@
         ],
         "detail": {
           "function": 0,
-          "command": 1287,
+          "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 23,

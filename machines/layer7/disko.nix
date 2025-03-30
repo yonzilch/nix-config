@@ -4,7 +4,6 @@ _: {
       hdd = {
         content = {
           partitions = {
-            type = "gpt";
             zfs = {
               size = "100%";
               content = {
@@ -13,16 +12,16 @@ _: {
               };
             };
           };
+          type = "gpt";
         };
         device = "/dev/disk/by-path/virtio-pci-0000:00:0b.0";
-        type = "disk";
       };
     };
     zpool = {
       zhdd = {
         type = "zpool";
         datasets = {
-          "/mnt/zhdd" = {
+          "mnt/zhdd" = {
             mountpoint = "/mnt/zhdd";
             options = {
               mountpoint = "legacy";

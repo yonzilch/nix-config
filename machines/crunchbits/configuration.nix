@@ -4,16 +4,15 @@
 }:
 {
   imports = [
-    ../../sops/eval/crunchbits/neko.nix
-    ../../sops/eval/crunchbits/network.nix
     ]
-      ++ lib.filesystem.listFilesRecursive ../../modules/shared;
+      ++ lib.filesystem.listFilesRecursive ../../modules/shared
+      ++ lib.filesystem.listFilesRecursive ../../sops/eval/crunchbits;
 
   clan.core.networking = {
     targetHost = "root@crunchbits";
   };
 
-  disko.devices.disk.main.device = "/dev/sda";
+  disko.devices.disk.main.device = "/dev/disk/by-path/pci-0000:04:00.0-scsi-0:0:0:0";
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''

@@ -90,10 +90,30 @@
   };
 
   services = {
+    ntpd-rs = {
+      enable = true;
+      settings = {
+        source = [
+          {
+            address = "ntppool1.time.nl";
+            mode = "nts";
+          }
+          {
+            address = "ntppool2.time.nl";
+            mode = "nts";
+          }
+          {
+            address = "nts.netnod.se";
+            mode = "nts";
+          }
+        ];
+      };
+      useNetworkingTimeServers = false;
+    };
     openssh = {
       enable = true;
       openFirewall = true;
-      ports = [ 22 ];
+      ports = [ 222 ];
       settings = {
         AllowUsers = null;
         PasswordAuthentication = false;
