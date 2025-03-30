@@ -4,10 +4,9 @@
 }:
 {
   imports = [
-    ../../sops/eval/tokyonight/neko.nix
-    ../../sops/eval/tokyonight/network.nix
     ]
-      ++ lib.filesystem.listFilesRecursive ../../modules/shared;
+      ++ lib.filesystem.listFilesRecursive ../../modules/shared
+      ++ lib.filesystem.listFilesRecursive ../../sops/eval/tokyonight;
 
   clan.core.networking = {
     targetHost = "root@tokyonight";

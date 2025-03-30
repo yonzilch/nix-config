@@ -1,16 +1,14 @@
 {
-  config,
   lib,
-  pkgs,
-  modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     ../../sops/eval/azure-hight/neko.nix
+    ../../modules/shared/bootstrap.nix
     ../../modules/shared/clan.nix
     ../../modules/shared/nix.nix
-    ../../modules/shared/minimalise.nix
-    ../../modules/shared/system.nix
+    ../../modules/shared/minimize.nix
   ];
 
   clan.core.networking = {
@@ -45,7 +43,7 @@
     }
   ];
 
-  networking.useDHCP = lib.mkDefault true;
+  networking.useDHCP = lib.mkForce true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   virtualisation.hypervGuest.enable = true;

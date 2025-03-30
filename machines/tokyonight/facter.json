@@ -15,10 +15,10 @@
         "version": 0,
         "video_memory": 0
       },
-      "pnp": true,
+      "pnp": false,
       "pnp_id": 0,
       "lba_support": false,
-      "low_memory_size": 654336,
+      "low_memory_size": 0,
       "smbios_version": 520
     },
     "bridge": [
@@ -70,7 +70,7 @@
         "sysfs_bus_id": "0000:00:01.0",
         "detail": {
           "function": 0,
-          "command": 259,
+          "command": 7,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 0,
@@ -130,7 +130,7 @@
         "sysfs_bus_id": "0000:00:00.0",
         "detail": {
           "function": 0,
-          "command": 259,
+          "command": 7,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 0,
@@ -198,7 +198,7 @@
         ],
         "detail": {
           "function": 3,
-          "command": 259,
+          "command": 7,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 9,
@@ -230,7 +230,7 @@
           "value": 132
         },
         "slot": {
-          "bus": 6,
+          "bus": 5,
           "number": 0
         },
         "base_class": {
@@ -265,8 +265,8 @@
         },
         "model": "QEMU DVD-ROM",
         "sysfs_id": "/class/block/sr0",
-        "sysfs_bus_id": "6:0:0:0",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:05.0/ata3/host6/target6:0:0/6:0:0:0",
+        "sysfs_bus_id": "5:0:0:0",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:05.0/ata3/host5/target5:0:0/5:0:0:0",
         "unix_device_name": "/dev/sr0",
         "unix_device_number": {
           "type": 98,
@@ -598,7 +598,7 @@
           "value": 132
         },
         "slot": {
-          "bus": 5,
+          "bus": 11,
           "number": 0
         },
         "base_class": {
@@ -628,8 +628,8 @@
         },
         "model": "QEMU HARDDISK",
         "sysfs_id": "/class/block/sda",
-        "sysfs_bus_id": "5:0:0:2",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:0b.0/virtio7/host5/target5:0:0/5:0:0:2",
+        "sysfs_bus_id": "11:0:0:2",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:0b.0/virtio7/host11/target11:0:0/11:0:0:2",
         "unix_device_name": "/dev/sda",
         "unix_device_number": {
           "type": 98,
@@ -638,11 +638,11 @@
           "range": 16
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/11",
+          "/dev/disk/by-diskseq/10",
           "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi3-0-0-2",
           "/dev/disk/by-label/cidata",
           "/dev/disk/by-path/pci-0000:00:0b.0-scsi-0:0:0:2",
-          "/dev/disk/by-uuid/2025-03-02-01-54-54-00",
+          "/dev/disk/by-uuid/2025-03-30-08-55-40-00",
           "/dev/sda"
         ],
         "unix_device_name2": "/dev/sg0",
@@ -799,7 +799,7 @@
         "resources": [
           {
             "type": "mem",
-            "base": 4261412864,
+            "base": 3221225472,
             "range": 8388608,
             "enabled": true,
             "access": "read_only",
@@ -807,7 +807,7 @@
           },
           {
             "type": "mem",
-            "base": 4273799168,
+            "base": 3229908992,
             "range": 4096,
             "enabled": true,
             "access": "read_write",
@@ -865,7 +865,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.16 uhci_hcd",
+          "name": "Linux 6.12.19 uhci_hcd",
           "value": 7531
         },
         "device": {
@@ -879,7 +879,7 @@
           "value": 0
         },
         "serial": "0000:00:01.2",
-        "model": "Linux 6.12.16 uhci_hcd UHCI Host Controller",
+        "model": "Linux 6.12.19 uhci_hcd UHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:01.2/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
         "resources": [
@@ -948,7 +948,7 @@
           {
             "type": "mem",
             "base": 0,
-            "range": 4059951104,
+            "range": 4056727552,
             "enabled": true,
             "access": "read_write",
             "prefetch": "unknown"
@@ -1138,29 +1138,6 @@
     "network_interface": [
       {
         "index": 35,
-        "attached_to": 0,
-        "class_list": [
-          "network_interface"
-        ],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Loopback",
-          "value": 0
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_name": "lo",
-        "unix_device_names": [
-          "lo"
-        ]
-      },
-      {
-        "index": 36,
         "attached_to": 25,
         "class_list": [
           "network_interface"
@@ -1199,6 +1176,29 @@
         ],
         "driver_modules": [
           "virtio_net"
+        ]
+      },
+      {
+        "index": 36,
+        "attached_to": 0,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "unix_device_name": "lo",
+        "unix_device_names": [
+          "lo"
         ]
       }
     ],
@@ -1250,7 +1250,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 49440,
+            "base": 49536,
             "range": 32,
             "enabled": true,
             "access": "read_write"
@@ -1263,7 +1263,7 @@
           },
           {
             "type": "mem",
-            "base": 61572651220992,
+            "base": 123145302376448,
             "range": 16384,
             "enabled": true,
             "access": "read_only",
@@ -1272,7 +1272,7 @@
         ],
         "detail": {
           "function": 0,
-          "command": 263,
+          "command": 7,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 11,
@@ -1336,7 +1336,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 49280,
+            "base": 49344,
             "range": 64,
             "enabled": true,
             "access": "read_write"
@@ -1349,24 +1349,24 @@
           },
           {
             "type": "mem",
-            "base": 4273819648,
-            "range": 4096,
+            "base": 123145302360064,
+            "range": 16384,
             "enabled": true,
-            "access": "read_write",
+            "access": "read_only",
             "prefetch": "no"
           },
           {
             "type": "mem",
-            "base": 61572651204608,
-            "range": 16384,
+            "base": 3229888512,
+            "range": 4096,
             "enabled": true,
-            "access": "read_only",
+            "access": "read_write",
             "prefetch": "no"
           }
         ],
         "detail": {
           "function": 0,
-          "command": 1287,
+          "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 10,
@@ -1430,7 +1430,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 49376,
+            "base": 49600,
             "range": 32,
             "enabled": true,
             "access": "read_write"
@@ -1443,7 +1443,15 @@
           },
           {
             "type": "mem",
-            "base": 4273471488,
+            "base": 123145302310912,
+            "range": 16384,
+            "enabled": true,
+            "access": "read_only",
+            "prefetch": "no"
+          },
+          {
+            "type": "mem",
+            "base": 3229614080,
             "range": 262144,
             "enabled": false,
             "access": "read_only",
@@ -1451,24 +1459,16 @@
           },
           {
             "type": "mem",
-            "base": 4273803264,
+            "base": 3229904896,
             "range": 4096,
             "enabled": true,
             "access": "read_write",
-            "prefetch": "no"
-          },
-          {
-            "type": "mem",
-            "base": 61572651155456,
-            "range": 16384,
-            "enabled": true,
-            "access": "read_only",
             "prefetch": "no"
           }
         ],
         "detail": {
           "function": 0,
-          "command": 1287,
+          "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 10,
@@ -1532,7 +1532,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 49216,
+            "base": 49408,
             "range": 64,
             "enabled": true,
             "access": "read_write"
@@ -1545,24 +1545,24 @@
           },
           {
             "type": "mem",
-            "base": 4273815552,
-            "range": 4096,
+            "base": 123145302343680,
+            "range": 16384,
             "enabled": true,
-            "access": "read_write",
+            "access": "read_only",
             "prefetch": "no"
           },
           {
             "type": "mem",
-            "base": 61572651188224,
-            "range": 16384,
+            "base": 3229892608,
+            "range": 4096,
             "enabled": true,
-            "access": "read_only",
+            "access": "read_write",
             "prefetch": "no"
           }
         ],
         "detail": {
           "function": 0,
-          "command": 1287,
+          "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 11,
@@ -1628,7 +1628,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 49152,
+            "base": 49472,
             "range": 64,
             "enabled": true,
             "access": "read_write"
@@ -1641,24 +1641,24 @@
           },
           {
             "type": "mem",
-            "base": 4273807360,
-            "range": 4096,
+            "base": 123145302327296,
+            "range": 16384,
             "enabled": true,
-            "access": "read_write",
+            "access": "read_only",
             "prefetch": "no"
           },
           {
             "type": "mem",
-            "base": 61572651171840,
-            "range": 16384,
+            "base": 3229900800,
+            "range": 4096,
             "enabled": true,
-            "access": "read_only",
+            "access": "read_write",
             "prefetch": "no"
           }
         ],
         "detail": {
           "function": 0,
-          "command": 1287,
+          "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 11,
@@ -1741,15 +1741,15 @@
           },
           {
             "type": "io",
-            "base": 49472,
-            "range": 16,
+            "base": 496,
+            "range": 8,
             "enabled": true,
             "access": "read_write"
           },
           {
             "type": "io",
-            "base": 496,
-            "range": 8,
+            "base": 49664,
+            "range": 16,
             "enabled": true,
             "access": "read_write"
           },
@@ -1763,7 +1763,7 @@
         ],
         "detail": {
           "function": 1,
-          "command": 263,
+          "command": 7,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 0,
@@ -1827,7 +1827,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 4224,
+            "base": 49152,
             "range": 64,
             "enabled": true,
             "access": "read_write"
@@ -1840,18 +1840,18 @@
           },
           {
             "type": "mem",
-            "base": 3221233664,
-            "range": 4096,
+            "base": 123145302425600,
+            "range": 16384,
             "enabled": true,
-            "access": "read_write",
+            "access": "read_only",
             "prefetch": "no"
           },
           {
             "type": "mem",
-            "base": 61572651270144,
-            "range": 16384,
+            "base": 3229876224,
+            "range": 4096,
             "enabled": true,
-            "access": "read_only",
+            "access": "read_write",
             "prefetch": "no"
           }
         ],
@@ -1921,7 +1921,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 4096,
+            "base": 49280,
             "range": 64,
             "enabled": true,
             "access": "read_write"
@@ -1934,18 +1934,18 @@
           },
           {
             "type": "mem",
-            "base": 3221225472,
-            "range": 4096,
+            "base": 123145302392832,
+            "range": 16384,
             "enabled": true,
-            "access": "read_write",
+            "access": "read_only",
             "prefetch": "no"
           },
           {
             "type": "mem",
-            "base": 61572651237376,
-            "range": 16384,
+            "base": 3229884416,
+            "range": 4096,
             "enabled": true,
-            "access": "read_only",
+            "access": "read_write",
             "prefetch": "no"
           }
         ],
@@ -2023,7 +2023,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 49408,
+            "base": 49568,
             "range": 32,
             "enabled": true,
             "access": "read_write"
@@ -2036,7 +2036,7 @@
           },
           {
             "type": "mem",
-            "base": 4273811456,
+            "base": 3229896704,
             "range": 4096,
             "enabled": true,
             "access": "read_write",
@@ -2045,7 +2045,7 @@
         ],
         "detail": {
           "function": 0,
-          "command": 1287,
+          "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 43,
@@ -2109,7 +2109,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 4160,
+            "base": 49216,
             "range": 64,
             "enabled": true,
             "access": "read_write"
@@ -2122,18 +2122,18 @@
           },
           {
             "type": "mem",
-            "base": 3221229568,
-            "range": 4096,
+            "base": 123145302409216,
+            "range": 16384,
             "enabled": true,
-            "access": "read_write",
+            "access": "read_only",
             "prefetch": "no"
           },
           {
             "type": "mem",
-            "base": 61572651253760,
-            "range": 16384,
+            "base": 3229880320,
+            "range": 4096,
             "enabled": true,
-            "access": "read_only",
+            "access": "read_write",
             "prefetch": "no"
           }
         ],
@@ -2493,7 +2493,7 @@
         "resources": [
           {
             "type": "io",
-            "base": 49344,
+            "base": 49632,
             "range": 32,
             "enabled": true,
             "access": "read_write"
@@ -2507,7 +2507,7 @@
         ],
         "detail": {
           "function": 2,
-          "command": 263,
+          "command": 7,
           "header_type": 0,
           "secondary_bus": 0,
           "irq": 11,
@@ -2543,9 +2543,9 @@
   "smbios": {
     "bios": {
       "handle": 0,
-      "vendor": "SeaBIOS",
-      "version": "1.16.3-2.el9_5.1",
-      "date": "04/01/2014",
+      "vendor": "EDK II",
+      "version": "edk2-20230301gitf80f052277c8-1.fc38",
+      "date": "03/01/2023",
       "features": null,
       "start_address": "0xe8000",
       "rom_size": 65536
