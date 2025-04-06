@@ -1,12 +1,9 @@
-{
-  lib,
-  ...
-}:
-{
-  imports = [
+{lib, ...}: {
+  imports =
+    [
     ]
-      ++ lib.filesystem.listFilesRecursive ../../modules/shared
-      ++ lib.filesystem.listFilesRecursive ../../sops/eval/crunchbits;
+    ++ lib.filesystem.listFilesRecursive ../../modules/shared
+    ++ lib.filesystem.listFilesRecursive ../../sops/eval/crunchbits;
 
   clan.core.networking = {
     targetHost = "root@crunchbits";

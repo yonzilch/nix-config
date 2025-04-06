@@ -1,11 +1,14 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   boot = {
     consoleLogLevel = lib.mkForce 0; # Disable console log
     extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
     initrd = {
       compressor = "zstd";
-      compressorArgs = [ "-T0" "-19" "--long" ];
+      compressorArgs = ["-T0" "-19" "--long"];
       systemd.enable = true;
       verbose = false;
     };
@@ -23,7 +26,7 @@
       "net.ipv4.conf.default.rp_filter" = 0;
       "net.ipv4.conf.all.rp_filter" = 0;
     };
-    kernelModules = [ "tcp_bbr" ];
+    kernelModules = ["tcp_bbr"];
     kernelPackages = pkgs.linuxPackages_6_12;
     kernelParams = [
       "audit=0"
@@ -74,7 +77,7 @@
         443
       ];
     };
-    nameservers = [ "127.0.0.1" "::1" ];
+    nameservers = ["127.0.0.1" "::1"];
     networkmanager = {
       dns = "none";
       enable = lib.mkForce false;
@@ -113,7 +116,7 @@
     openssh = {
       enable = true;
       openFirewall = true;
-      ports = [ 222 ];
+      ports = [222];
       settings = {
         AllowUsers = null;
         PasswordAuthentication = false;

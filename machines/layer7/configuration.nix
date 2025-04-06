@@ -1,12 +1,9 @@
-{
-  lib,
-  ...
-}:
-{
-  imports = [
+{lib, ...}: {
+  imports =
+    [
     ]
-      ++ lib.filesystem.listFilesRecursive ../../modules/shared
-      ++ lib.filesystem.listFilesRecursive ../../sops/eval/layer7;
+    ++ lib.filesystem.listFilesRecursive ../../modules/shared
+    ++ lib.filesystem.listFilesRecursive ../../sops/eval/layer7;
 
   clan.core.networking = {
     targetHost = "root@layer7";

@@ -1,8 +1,4 @@
-{
-  lib,
-  ...
-}:
-{
+{lib, ...}: {
   nix = {
     gc = {
       automatic = true;
@@ -13,11 +9,11 @@
       auto-optimise-store = true;
       gc-keep-outputs = false;
       gc-keep-derivations = false;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
     };
     optimise = {
       automatic = true;
-      dates = [ "weekly" ];
+      dates = ["weekly"];
     };
   };
   nixpkgs = {

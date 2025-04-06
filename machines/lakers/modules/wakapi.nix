@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   sops.secrets.lakers-wakapi-passwordSalt = {
     mode = "0440";
     owner = config.users.users.wakapi.name;

@@ -1,19 +1,15 @@
-{
-  lib,
-  ...
-}:
-{
-  imports = [
-    ./modules/alist.nix
-    ./modules/traefik.nix
-    ./modules/wakapi.nix
+{lib, ...}: {
+  imports =
+    [
+      ./modules/alist.nix
+      ./modules/traefik.nix
+      ./modules/wakapi.nix
 
-    ../../sops/eval/lakers/neko.nix
-    ../../sops/eval/lakers/network.nix
+      ../../sops/eval/lakers/neko.nix
+      ../../sops/eval/lakers/network.nix
     ]
-      ++ lib.filesystem.listFilesRecursive ../../modules/options
-      ++ lib.filesystem.listFilesRecursive ../../modules/shared;
-
+    ++ lib.filesystem.listFilesRecursive ../../modules/options
+    ++ lib.filesystem.listFilesRecursive ../../modules/shared;
 
   clan.core.networking = {
     targetHost = "root@lakers";
@@ -21,7 +17,12 @@
 
   disko.devices.disk.main.device = "/dev/vda";
 
-  swapDevices = [{ device = "/swapfile"; size = 2048; }];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 2048;
+    }
+  ];
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''

@@ -20,7 +20,7 @@ _: {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                mountOptions = ["umask=0077"];
               };
             };
             root = {
@@ -29,7 +29,7 @@ _: {
                 type = "filesystem";
                 format = "xfs";
                 mountpoint = "/";
-                mountOptions = [ "noatime" "nosuid" "nodev" ];
+                mountOptions = ["noatime" "nosuid" "nodev"];
               };
             };
           };
