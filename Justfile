@@ -19,16 +19,16 @@ anywhere-vm input:
 
 build input:
   # build
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ;
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -d -i ;
   sudo nixos-rebuild build --flake .#{{input}} --show-trace -L -v ;
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -e -i
 
 
 build-vm input:
   # build a vm
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ;
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -d -i ;
   sudo nixos-rebuild build-vm --flake .#{{input}} --show-trace -L -v ;
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -e -i
 
 
 
@@ -60,39 +60,39 @@ upgrade:
 
 rebuild input:
   # perform remote rebuild action
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ;
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -d -i ;
   git add . ; nixos-rebuild switch --flake .#{{input}} --target-host root@{{input}} -v ;
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -e -i
 
 
 install input:
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ; git add . ; clan machines install {{input}} --target-host {{input}} --update-hardware-config nixos-facter ; ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -d -i ; git add . ; clan machines install {{input}} --target-host {{input}} --update-hardware-config nixos-facter ; ls sops/eval/{{input}}/* | xargs -n 1 sops -e -i
 
 
 deploy input:
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i ;
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -d -i ;
   git add . ; clan machines update {{input}} --debug ;
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -e -i
 
 
 deploy-all:
   # perform clan update action
-  ls sops/eval/**/*.nix | xargs -n 1 sops -d -i ;
+  ls sops/eval/**/* | xargs -n 1 sops -d -i ;
   git add . ; clan machines update --debug ;
-  ls sops/eval/**/*.nix | xargs -n 1 sops -e -i
+  ls sops/eval/**/* | xargs -n 1 sops -e -i
 
 
 encrypt-all:
-  ls sops/eval/**/*.nix | xargs -n 1 sops -e -i
+  ls sops/eval/**/* | xargs -n 1 sops -e -i
 
 
 encrypt input:
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -e -i
 
 
 decrypt-all:
-  ls sops/eval/**/*.nix | xargs -n 1 sops -d -i
+  ls sops/eval/**/* | xargs -n 1 sops -d -i
 
 
 decrypt input:
-  ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -d -i
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -d -i
