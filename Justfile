@@ -31,6 +31,13 @@ build-vm input:
   ls sops/eval/{{input}}/*.nix | xargs -n 1 sops -e -i
 
 
+
+format:
+  # Use alejandra and deadnix to format code
+  deadnix -e
+  alejandra .
+
+
 gc:
   # let system gc (remove unused packages, etc)
   sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system
