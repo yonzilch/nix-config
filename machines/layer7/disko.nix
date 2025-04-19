@@ -21,10 +21,10 @@ _: {
       zhdd = {
         type = "zpool";
         datasets = {
-          "mnt/zhdd" = {
-            mountpoint = "/mnt/zhdd";
+          "zhdd" = {
+            mountpoint = "/zhdd";
             options = {
-              mountpoint = "legacy";
+              compression = "lz4";
               "com.sun:auto-snapshot" = "false";
             };
             type = "zfs_fs";

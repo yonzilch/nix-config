@@ -480,12 +480,12 @@
         },
         "unix_device_names": [
           "/dev/cdrom",
-          "/dev/disk/by-diskseq/13",
+          "/dev/disk/by-diskseq/4",
           "/dev/disk/by-id/ata-QEMU_DVD-ROM_QM00001",
           "/dev/disk/by-label/cidata",
           "/dev/disk/by-path/pci-0000:00:01.1-ata-1",
           "/dev/disk/by-path/pci-0000:00:01.1-ata-1.0",
-          "/dev/disk/by-uuid/2025-03-30-10-19-01-00",
+          "/dev/disk/by-uuid/2025-04-19-14-21-29-00",
           "/dev/sr0"
         ],
         "unix_device_name2": "/dev/sg0",
@@ -565,7 +565,7 @@
           "range": 1
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/14",
+          "/dev/disk/by-diskseq/6",
           "/dev/disk/by-id/ata-QEMU_DVD-ROM_QM00003",
           "/dev/disk/by-path/pci-0000:00:01.1-ata-2",
           "/dev/disk/by-path/pci-0000:00:01.1-ata-2.0",
@@ -685,6 +685,7 @@
           "arat",
           "vnmi",
           "umip",
+          "md_clear",
           "flush_l1d",
           "arch_capabilities"
         ],
@@ -701,7 +702,7 @@
           "bhi",
           "ibpb_no_ret"
         ],
-        "bogo": 3396.06,
+        "bogo": 3399.99,
         "cache": 16384,
         "units": 2,
         "physical_id": 0,
@@ -744,12 +745,12 @@
         "unix_device_name": "/dev/vdb",
         "unix_device_number": {
           "type": 98,
-          "major": 253,
+          "major": 254,
           "minor": 16,
           "range": 16
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/10",
+          "/dev/disk/by-diskseq/2",
           "/dev/disk/by-path/pci-0000:00:0b.0",
           "/dev/disk/by-path/virtio-pci-0000:00:0b.0",
           "/dev/vdb"
@@ -805,12 +806,12 @@
         "unix_device_name": "/dev/vda",
         "unix_device_number": {
           "type": 98,
-          "major": 253,
+          "major": 254,
           "minor": 0,
           "range": 16
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/9",
+          "/dev/disk/by-diskseq/1",
           "/dev/disk/by-path/pci-0000:00:0a.0",
           "/dev/disk/by-path/virtio-pci-0000:00:0a.0",
           "/dev/vda"
@@ -967,7 +968,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.19 uhci_hcd",
+          "name": "Linux 6.12.20 uhci_hcd",
           "value": 7531
         },
         "device": {
@@ -981,7 +982,7 @@
           "value": 0
         },
         "serial": "0000:00:01.2",
-        "model": "Linux 6.12.19 uhci_hcd UHCI Host Controller",
+        "model": "Linux 6.12.20 uhci_hcd UHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:01.2/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
         "resources": [
@@ -1050,7 +1051,7 @@
           {
             "type": "mem",
             "base": 0,
-            "range": 8332136448,
+            "range": 8331407360,
             "enabled": true,
             "access": "read_write",
             "prefetch": "unknown"
@@ -1360,9 +1361,9 @@
         "model": "Virtio Ethernet Card 0",
         "sysfs_id": "/devices/pci0000:00/0000:00:12.0/virtio4",
         "sysfs_bus_id": "virtio4",
-        "unix_device_name": "ens18",
+        "unix_device_name": "eth0",
         "unix_device_names": [
-          "ens18"
+          "eth0"
         ],
         "resources": [
           {
@@ -1403,11 +1404,11 @@
           "value": 1
         },
         "model": "Ethernet network interface",
-        "sysfs_id": "/class/net/ens18",
+        "sysfs_id": "/class/net/eth0",
         "sysfs_device_link": "/devices/pci0000:00/0000:00:12.0/virtio4",
-        "unix_device_name": "ens18",
+        "unix_device_name": "eth0",
         "unix_device_names": [
-          "ens18"
+          "eth0"
         ],
         "resources": [
           {
@@ -2343,7 +2344,7 @@
     "chassis": {
       "handle": 768,
       "manufacturer": "QEMU",
-      "version": "pc-i440fx-9.0",
+      "version": "pc-i440fx-9.2",
       "chassis_type": {
         "hex": "0001",
         "name": "Other",
@@ -2451,7 +2452,7 @@
         },
         "socket_populated": true,
         "manufacturer": "QEMU",
-        "version": "pc-i440fx-9.0",
+        "version": "pc-i440fx-9.2",
         "part": "",
         "processor_type": {
           "hex": "0003",
@@ -2479,7 +2480,7 @@
       "handle": 256,
       "manufacturer": "QEMU",
       "product": "Standard PC (i440FX + PIIX, 1996)",
-      "version": "pc-i440fx-9.0",
+      "version": "pc-i440fx-9.2",
       "wake_up": {
         "hex": "0006",
         "name": "Power Switch",
