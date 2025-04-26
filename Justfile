@@ -70,8 +70,8 @@ install input:
 
 
 deploy input:
-  ls sops/eval/{{input}}/* | xargs -n 1 sops -d -i ;
-  git add . ; clan machines update {{input}} --debug ;
+  ls sops/eval/{{input}}/* | xargs -n 1 sops -d -i \
+  git add . ; clan machines update {{input}} --debug
   ls sops/eval/{{input}}/* | xargs -n 1 sops -e -i
 
 

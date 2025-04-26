@@ -1,39 +1,44 @@
 {
   description = "NixOS server config (powered by clan)";
-  inputs.clan-core.url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
-  inputs.nixpkgs.follows = "clan-core/nixpkgs";
 
-  outputs = {
-    self,
-    clan-core,
-    ...
-  }: let
-    clan = clan-core.lib.buildClan {
-      inherit self;
-      meta.name = "yzlab";
-      machines = {
-        "example" = {
-          clan.deployment.requireExplicitUpdate = true;
-        };
-        "azure-hight" = {
-          clan.deployment.requireExplicitUpdate = true;
-        };
-      };
+  inputs = {
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    clan-core = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
     };
-  in {
-    inherit (clan) nixosConfigurations clanInternals;
-    devShells =
-      clan-core.inputs.nixpkgs.lib.genAttrs ["x86_64-linux"]
-      (system: {
-        default = clan-core.inputs.nixpkgs.legacyPackages.${system}.mkShell {
-          packages = [
-            clan-core.packages.${system}.clan-cli
-            clan-core.inputs.nixpkgs.legacyPackages.${system}.alejandra
-            clan-core.inputs.nixpkgs.legacyPackages.${system}.commitlint-rs
-            clan-core.inputs.nixpkgs.legacyPackages.${system}.deadnix
-            clan-core.inputs.nixpkgs.legacyPackages.${system}.sops
-          ];
-        };
-      });
+    flake-parts = {
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+      url = "github:hercules-ci/flake-parts";
+    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
+
+  outputs = inputs @ {flake-parts, ...}:
+    flake-parts.lib.mkFlake {inherit inputs;} (
+      {...}: {
+        imports = [
+          ./machines/flake-module.nix
+          inputs.clan-core.flakeModules.default
+        ];
+        systems = ["x86_64-linux"];
+
+        perSystem = {
+          system,
+          pkgs,
+          ...
+        }: {
+          devShells.default = pkgs.mkShell {
+            packages = with pkgs; [
+              clan-core.packages.${system}.clan-cli
+              alejandra
+              commitlint-rs
+              deadnix
+              sops
+            ];
+          };
+        };
+      }
+    );
 }

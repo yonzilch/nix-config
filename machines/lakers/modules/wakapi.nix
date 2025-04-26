@@ -4,6 +4,7 @@
     owner = config.users.users.wakapi.name;
     group = config.users.users.wakapi.group;
   };
+
   services.wakapi = {
     enable = true;
     # see https://github.com/NixOS/nixpkgs/blob/88a55dffa4d44d294c74c298daf75824dc0aafb5/nixos/modules/services/web-apps/wakapi.nix#L155
