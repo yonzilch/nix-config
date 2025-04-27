@@ -17,21 +17,19 @@
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} (
-      {...}: {
+      _: {
         imports = [
           ./machines/flake-module.nix
-          inputs.clan-core.flakeModules.default
         ];
         systems = ["x86_64-linux"];
-
         perSystem = {
-          system,
+          inputs',
           pkgs,
           ...
         }: {
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
-              clan-core.packages.${system}.clan-cli
+              inputs'.clan-core.packages.clan-cli
               alejandra
               commitlint-rs
               deadnix

@@ -1,7 +1,6 @@
 {
-  config,
+  inputs,
   lib,
-  pkgs,
   ...
 }: {
   boot = {
@@ -11,7 +10,7 @@
     zfs = {
       forceImportRoot = false;
       devNodes = "/dev/disk/by-path";
-      package = lib.mkIf (config.boot.kernelPackages == "linuxPackages_cachyos") pkgs.zfs_cachyos;
+      package = inputs.chaotic.legacyPackages.x86_64-linux.zfs_cachyos;
     };
   };
   services.zfs = {

@@ -1,8 +1,11 @@
 {
-  self,
   inputs,
+  self,
   ...
 }: {
+  imports = with inputs; [
+    clan-core.flakeModules.default
+  ];
   clan = {
     machines = {
       "example" = {
@@ -11,8 +14,8 @@
     };
     meta.name = "yzlab";
     specialArgs = {
-      self = self;
       inputs = inputs;
+      self = self;
     };
   };
 }

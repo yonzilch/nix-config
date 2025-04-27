@@ -1,10 +1,11 @@
 {
+  inputs,
   lib,
-  pkgs,
   ...
-}: {
+}:
+with lib; {
   boot = {
-    consoleLogLevel = lib.mkForce 0; # Disable console log
+    consoleLogLevel = mkForce 0; # Disable console log
     extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
     initrd = {
       compressor = "zstd";
@@ -27,13 +28,13 @@
       "net.ipv4.conf.all.rp_filter" = 0;
     };
     kernelModules = ["tcp_bbr"];
-    kernelPackages = pkgs.linuxPackages_6_12;
+    kernelPackages = inputs.chaotic.legacyPackages.x86_64-linux.linuxPackages_cachyos-server;
     kernelParams = [
       "audit=0"
-      "console=tty0"
+      "console=tty1"
       "debugfs=off"
-      "net.ifnames=0"
       "erst_disable"
+      "net.ifnames=0"
       "nmi_watchdog=0"
       "noatime"
       "nowatchdog"
@@ -69,27 +70,28 @@
   networking = {
     dhcpcd.extraConfig = "nohook resolv.conf";
     firewall = {
-      enable = lib.mkDefault true;
+      enable = mkDefault true;
       allowedTCPPorts = [
         443
       ];
       allowedUDPPorts = [
         443
       ];
+      logRefusedConnections = false;
     };
     nameservers = ["127.0.0.1" "::1"];
     networkmanager = {
       dns = "none";
-      enable = lib.mkForce false;
+      enable = mkForce false;
     };
     nftables.enable = true;
-    resolvconf.enable = lib.mkForce false;
+    resolvconf.enable = mkForce false;
     timeServers = [
       "ntppool1.time.nl"
       "ntppool2.time.nl"
       "ntp.ripe.net"
     ];
-    useDHCP = lib.mkDefault true;
+    useDHCP = mkDefault true;
   };
 
   services = {
