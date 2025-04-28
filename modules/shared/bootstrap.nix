@@ -14,7 +14,8 @@ with lib; {
       verbose = false;
     };
     kernel.sysctl = {
-      "kernel.core_pattern" = "|/bin/false"; # Disable automatic core dumps
+       # Disable automatic core dumps
+      "kernel.core_pattern" = "|/bin/false";
 
       # bbr
       "net.core.default_qdisc" = "fq";
@@ -28,6 +29,7 @@ with lib; {
       "net.ipv4.conf.all.rp_filter" = 0;
     };
     kernelModules = ["tcp_bbr"];
+    #kernelPackages = pkgs.linuxPackages_6_12;
     kernelPackages = inputs.chaotic.legacyPackages.x86_64-linux.linuxPackages_cachyos-server;
     kernelParams = [
       "audit=0"
