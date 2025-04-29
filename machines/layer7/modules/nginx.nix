@@ -35,6 +35,18 @@
           proxyWebsockets = true;
         };
       };
+      "share.yon.im" = {
+        # Set SSL
+        forceSSL = true;
+        kTLS = true;
+        sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
+        sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
+        # Set Proxy
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:5244";
+          proxyWebsockets = true;
+        };
+      };
     };
   };
 }

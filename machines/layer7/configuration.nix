@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports =
     [
+      ../../modules/options/alist.nix
     ]
     ++ lib.filesystem.listFilesRecursive ./modules
     ++ lib.filesystem.listFilesRecursive ../../modules/shared
