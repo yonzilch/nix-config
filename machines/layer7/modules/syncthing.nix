@@ -8,7 +8,7 @@
           globalAnnounceEnabled = true;
           localAnnounceEnabled = true;
           relaysEnabled = false;
-          urAccepted = "-1";
+          urAccepted = -1;
         };
       };
       openDefaultPorts = true;

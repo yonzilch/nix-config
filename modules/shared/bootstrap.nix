@@ -14,7 +14,7 @@ with lib; {
       verbose = false;
     };
     kernel.sysctl = {
-       # Disable automatic core dumps
+      # Disable automatic core dumps
       "kernel.core_pattern" = "|/bin/false";
 
       # bbr
