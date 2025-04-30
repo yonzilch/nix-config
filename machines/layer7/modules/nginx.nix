@@ -1,5 +1,6 @@
 {config, ...}: {
   sops.secrets = {
+    shared-nginx-basicAuthFile.owner = "nginx";
     shared-nginx-self-sign-crt.owner = "nginx";
     shared-nginx-self-sign-key.owner = "nginx";
   };
@@ -23,25 +24,32 @@
     recommendedOptimisation = true;
     recommendedZstdSettings = true;
     virtualHosts = {
-      "sync.yzlab.eu.org" = {
-        # Set SSL
+      "flood.yzlab.eu.org" = {
+        basicAuthFile = config.sops.secrets.shared-nginx-basicAuthFile.path;
         forceSSL = true;
         kTLS = true;
         sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
         sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
-        # Set Proxy
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:3000";
+          proxyWebsockets = true;
+        };
+      };
+      "sync.yzlab.eu.org" = {
+        forceSSL = true;
+        kTLS = true;
+        sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
+        sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
         locations."/" = {
           proxyPass = "http://127.0.0.1:8384";
           proxyWebsockets = true;
         };
       };
       "share.yon.im" = {
-        # Set SSL
         forceSSL = true;
         kTLS = true;
         sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
         sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
-        # Set Proxy
         locations."/" = {
           proxyPass = "http://127.0.0.1:5244";
           proxyWebsockets = true;
