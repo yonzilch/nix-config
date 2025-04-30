@@ -24,6 +24,12 @@
     recommendedOptimisation = true;
     recommendedZstdSettings = true;
     virtualHosts = {
+      "_" = {
+        forceSSL = true;
+        root = "/dev/null";
+        sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
+        sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
+      };
       "flood.yzlab.eu.org" = {
         basicAuthFile = config.sops.secrets.shared-nginx-basicAuthFile.path;
         forceSSL = true;
