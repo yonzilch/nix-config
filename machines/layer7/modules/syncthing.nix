@@ -1,18 +1,24 @@
 _: {
   services = {
     syncthing = {
+      configDir = "/var/lib/syncthing";
+      dataDir = "/zhdd/S3";
       enable = true;
       guiAddress = "localhost:8384";
       settings = {
+        gui = {
+          theme = "Dark";
+        };
         options = {
           globalAnnounceEnabled = true;
-          localAnnounceEnabled = true;
+          localAnnounceEnabled = false;
           relaysEnabled = false;
           urAccepted = -1;
         };
       };
       openDefaultPorts = true;
-      user = "root";
+      group = "www";
+      user = "syncthing";
     };
   };
 }

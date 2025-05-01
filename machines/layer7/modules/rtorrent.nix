@@ -53,6 +53,7 @@
         pieces.memory.max.set = 2048M
       '';
       enable = true;
+      group = "www";
       user = "rtorrent";
     };
   };

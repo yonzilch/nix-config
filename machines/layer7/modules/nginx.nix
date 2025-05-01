@@ -30,6 +30,16 @@
         sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
         sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
       };
+      "audio.yzlab.eu.org" = {
+        forceSSL = true;
+        kTLS = true;
+        sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
+        sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:4533";
+          proxyWebsockets = true;
+        };
+      };
       "flood.yzlab.eu.org" = {
         basicAuthFile = config.sops.secrets.shared-nginx-basicAuthFile.path;
         forceSSL = true;
@@ -42,6 +52,7 @@
         };
       };
       "sync.yzlab.eu.org" = {
+        basicAuthFile = config.sops.secrets.shared-nginx-basicAuthFile.path;
         forceSSL = true;
         kTLS = true;
         sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;

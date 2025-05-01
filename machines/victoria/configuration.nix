@@ -1,18 +1,21 @@
-{lib, ...}: {
+{lib, ...}:
+let
+hostname = "victoria";
+ls = lib.filesystem.listFilesRecursive;
+in
+{
   imports =
     [
     ]
-    ++ lib.filesystem.listFilesRecursive ./modules
-    ++ lib.filesystem.listFilesRecursive ../../modules/shared
-    ++ lib.filesystem.listFilesRecursive ../../sops/eval/victoria;
+    ++ ls ./modules
+    ++ ls ../../modules/shared
+    ++ ls ../../sops/eval/${hostname};
 
   clan.core.networking = {
-    targetHost = "root@victoria";
+    targetHost = "root@${hostname}";
   };
 
   disko.devices.disk.main.device = "/dev/disk/by-path/virtio-pci-0000:00:07.0";
-
-  networking.hostId = "e0bd60c0";
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''
