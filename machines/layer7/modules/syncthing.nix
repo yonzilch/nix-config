@@ -1,12 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
-  environment.systemPackages = with pkgs; [
-    mediainfo
-  ];
-
+_: {
   services = {
     syncthing = {
       enable = true;

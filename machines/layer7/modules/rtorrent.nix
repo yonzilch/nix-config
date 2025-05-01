@@ -1,5 +1,4 @@
-{lib, ...}:
-{
+{lib, ...}: {
   networking.firewall = {
     allowedTCPPorts = [6881 50000];
     allowedUDPPorts = [6881 50000];

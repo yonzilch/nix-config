@@ -1,4 +1,7 @@
-_:{
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    mediainfo
+  ];
   services = {
     flood = {
       enable = true;
