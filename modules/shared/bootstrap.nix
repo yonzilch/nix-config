@@ -73,12 +73,8 @@ with lib; {
     dhcpcd.extraConfig = "nohook resolv.conf";
     firewall = {
       enable = mkDefault true;
-      allowedTCPPorts = [
-        443
-      ];
-      allowedUDPPorts = [
-        443
-      ];
+      allowedTCPPorts = [443];
+      allowedUDPPorts = [443];
       logRefusedConnections = false;
     };
     nameservers = ["127.0.0.1" "::1"];

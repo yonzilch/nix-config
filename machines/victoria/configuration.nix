@@ -9,6 +9,7 @@ in
     ]
     ++ ls ./modules
     ++ ls ../../modules/shared
+    ++ ls ../../modules/options
     ++ ls ../../sops/eval/${hostname};
 
   clan.core.networking = {

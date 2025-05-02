@@ -18,9 +18,7 @@
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} (
       _: {
-        imports = [
-          ./machines/flake-module.nix
-        ];
+        imports = [./machines];
         systems = ["x86_64-linux"];
         perSystem = {
           inputs',
@@ -32,6 +30,7 @@
               inputs'.clan-core.packages.clan-cli
               alejandra
               commitlint-rs
+              compose2nix
               deadnix
               sops
             ];

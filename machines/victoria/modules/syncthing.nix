@@ -14,7 +14,6 @@ _: {
       };
       volumes = [
         "syncthing:/config"
-        "/zhdd:/zhdd"
       ];
       ports = [
         "127.0.0.1:8384:8384"

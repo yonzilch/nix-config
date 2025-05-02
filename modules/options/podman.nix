@@ -1,7 +1,9 @@
 _: {
-  networking.firewall.interfaces."podman*".allowedUDPPorts = [53 5353];
   virtualisation = {
     containers = {
+      containersConf.settings = {
+        containers.dns_servers = ["185.222.222.222" "45.11.45.11"];
+      };
       enable = true;
       storage.settings = {
         storage.driver = "zfs";
@@ -12,8 +14,15 @@ _: {
     };
     oci-containers.backend = "podman";
     podman = {
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+      };
       enable = true;
-      defaultNetwork.settings.dns_enabled = true;
+      defaultNetwork.settings = {
+        dns = ["185.222.222.222" "45.11.45.11"];
+        dns_enabled = true;
+      };
       dockerCompat = true;
     };
   };

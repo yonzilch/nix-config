@@ -11,6 +11,10 @@
     '';
     appendHttpConfig = ''
       access_log off;
+      # THEME.PARK
+      map $host $theme {
+          default catppuccin-mocha;
+      }
     '';
     clientMaxBodySize = "10240m";
     enable = true;
@@ -96,13 +100,21 @@
         sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
         sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
         locations."/" = {
-          proxyPass = "http://127.0.0.1:5000";
-        };
-        locations."/api/socket" = {
-          proxyPass = "http://127.0.0.1:5000/api/socket";
+          proxyPass = "http://127.0.0.1:8080";
           proxyWebsockets = true;
           extraConfig = ''
             proxy_set_header Host $host;
+
+            proxy_hide_header   "x-webkit-csp";
+            proxy_hide_header   "content-security-policy";
+
+            set $app qbittorrent;
+            proxy_set_header Accept-Encoding "";
+            sub_filter
+            '</head>'
+            '<link rel="stylesheet" type="text/css" href="https://theme-park.dev/css/base/$app/$theme.css">
+            </head>';
+            sub_filter_once on;
           '';
         };
       };
