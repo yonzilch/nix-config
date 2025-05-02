@@ -1,24 +1,26 @@
 _: {
-  services = {
+  networking.firewall = {
+    allowedTCPPorts = [22000];
+    allowedUDPPorts = [21027 22000];
+  };
+  virtualisation.oci-containers.containers = {
     syncthing = {
-      configDir = "/var/lib/syncthing";
-      dataDir = "/zhdd/S3";
-      enable = true;
-      guiAddress = "localhost:8384";
-      settings = {
-        gui = {
-          theme = "Dark";
-        };
-        options = {
-          globalAnnounceEnabled = true;
-          localAnnounceEnabled = false;
-          relaysEnabled = false;
-          urAccepted = -1;
-        };
+      hostname = "syncthing";
+      user = "root";
+      image = "lscr.io/linuxserver/syncthing:latest";
+      environment = {
+        PUID = "1000";
+        PGID = "1000";
       };
-      openDefaultPorts = true;
-      group = "www";
-      user = "syncthing";
+      volumes = [
+        "syncthing:/config"
+      ];
+      ports = [
+        "127.0.0.1:8384:8384"
+        "21027:21027/udp"
+        "22000:22000/tcp"
+        "22000:22000/udp"
+      ];
     };
   };
 }

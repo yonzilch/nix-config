@@ -2,6 +2,7 @@
   imports =
     [
       ../../modules/options/alist.nix
+      ../../modules/options/podman.nix
     ]
     ++ lib.filesystem.listFilesRecursive ./modules
     ++ lib.filesystem.listFilesRecursive ../../modules/shared
@@ -12,8 +13,6 @@
   };
 
   disko.devices.disk.main.device = "/dev/disk/by-path/virtio-pci-0000:00:0a.0";
-
-  users.groups.www = {};
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''
