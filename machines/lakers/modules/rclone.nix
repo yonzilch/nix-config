@@ -1,5 +1,5 @@
 _: {
-virtualisation.oci-containers.containers."rclone" = {
+  virtualisation.oci-containers.containers."rclone" = {
     image = "rclone/rclone:latest";
     volumes = [
       "rclone_config:/config:rw"

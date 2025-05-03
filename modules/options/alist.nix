@@ -3,16 +3,17 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.services.alist;
-  inherit
-    (lib)
+  inherit (lib)
     types
     mkIf
     mkOption
     mkEnableOption
     ;
-in {
+in
+{
   options.services.alist = {
     enable = mkEnableOption "Alist";
 
@@ -40,8 +41,8 @@ in {
 
   config = mkIf cfg.enable {
     systemd.services.alist-server = {
-      wantedBy = ["multi-user.target"];
-      after = ["network.target"];
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
       description = "alist";
       serviceConfig = {
         Type = "simple";
@@ -55,7 +56,7 @@ in {
       };
     };
 
-    networking.firewall.allowedTCPPorts = mkIf cfg.openFirewall [5244];
+    networking.firewall.allowedTCPPorts = mkIf cfg.openFirewall [ 5244 ];
 
     users.users = mkIf (cfg.user == "alist") {
       alist = {
@@ -64,8 +65,8 @@ in {
         isSystemUser = true;
       };
     };
-    users.groups = mkIf (cfg.group == "alist") {alist = {};};
+    users.groups = mkIf (cfg.group == "alist") { alist = { }; };
 
-    environment.systemPackages = [pkgs.alist];
+    environment.systemPackages = [ pkgs.alist ];
   };
 }

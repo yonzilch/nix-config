@@ -67,6 +67,12 @@
             tls.certresolver = "myresolver";
             middlewares = "auth";
           };
+          websurfx = {
+            entryPoints = ["websecure"];
+            rule = "Host(`search.yzlab.eu.org`)";
+            service = "websurfx";
+            tls.certresolver = "myresolver";
+          };
           syncthing = {
             entryPoints = ["websecure"];
             rule = "Host(`lakers-sync.yzlab.eu.org`)";
@@ -105,6 +111,15 @@
               servers = [
                 {
                   url = "http://localhost:5572";
+                }
+              ];
+            };
+          };
+          websurfx = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://localhost:8080";
                 }
               ];
             };
