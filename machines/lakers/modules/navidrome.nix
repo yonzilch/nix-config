@@ -1,4 +1,4 @@
-_:{
+_: {
   virtualisation.oci-containers.containers."navidrome" = {
     image = "deluan/navidrome:latest";
     environment = {

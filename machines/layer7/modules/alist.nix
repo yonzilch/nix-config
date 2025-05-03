@@ -1,4 +1,4 @@
-_:{
+_: {
   services.alist = {
     enable = true;
     user = "root";

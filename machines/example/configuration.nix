@@ -10,7 +10,7 @@
     # zerotier.controller.enable = true;
   };
 
-  disko.devices.disk.main.device = "/dev/disk/by-id/xxxxxx";
+  disko.devices.disk.main.device = "/dev/disk/by-path/xxxxxx";
 
   # swapDevices = [{ device = "/swapfile"; size = 2048; }];
 

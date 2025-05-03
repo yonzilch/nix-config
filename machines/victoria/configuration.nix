@@ -1,9 +1,7 @@
-{lib, ...}:
-let
-hostname = "victoria";
-ls = lib.filesystem.listFilesRecursive;
-in
-{
+{lib, ...}: let
+  hostname = "victoria";
+  ls = lib.filesystem.listFilesRecursive;
+in {
   imports =
     [
     ]

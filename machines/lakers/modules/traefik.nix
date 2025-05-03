@@ -48,10 +48,16 @@
       http = {
         middlewares.auth.basicauth.users = "yzlab:$2y$10$JJUlCb904PhKLQLFlDTt1eG2Sf93f5QuYCDgKTQpVy4Rcery8tgsu";
         routers = {
-          alist = {
+          navidrome = {
             entryPoints = ["websecure"];
-            rule = "Host(`share.yon.im`)";
-            service = "alist";
+            rule = "Host(`audio.yzlab.eu.org`)";
+            service = "navidrome";
+            tls.certresolver = "myresolver";
+          };
+          syncthing = {
+            entryPoints = ["websecure"];
+            rule = "Host(`lakers-sync.yzlab.eu.org`)";
+            service = "syncthing";
             tls.certresolver = "myresolver";
           };
           wakapi = {
@@ -63,11 +69,20 @@
           };
         };
         services = {
-          alist = {
+          navidrome = {
             loadBalancer = {
               servers = [
                 {
-                  url = "http://localhost:5244";
+                  url = "http://localhost:4533";
+                }
+              ];
+            };
+          };
+          syncthing = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://localhost:8384";
                 }
               ];
             };

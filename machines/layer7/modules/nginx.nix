@@ -84,7 +84,7 @@
           #proxyWebsockets = true;
         };
       };
-      "sync.yzlab.eu.org" = {
+      "layer7-sync.yzlab.eu.org" = {
         forceSSL = true;
         kTLS = true;
         sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;

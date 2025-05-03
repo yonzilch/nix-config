@@ -1,15 +1,18 @@
-{lib, ...}: {
+{lib, ...}: let
+  hostname = "layer7";
+  ls = lib.filesystem.listFilesRecursive;
+in {
   imports =
     [
       ../../modules/options/alist.nix
       ../../modules/options/podman.nix
     ]
-    ++ lib.filesystem.listFilesRecursive ./modules
-    ++ lib.filesystem.listFilesRecursive ../../modules/shared
-    ++ lib.filesystem.listFilesRecursive ../../sops/eval/layer7;
+    ++ ls ./modules
+    ++ ls ../../modules/shared
+    ++ ls ../../sops/eval/${hostname};
 
   clan.core.networking = {
-    targetHost = "root@layer7";
+    targetHost = "root@${hostname}";
   };
 
   disko.devices.disk.main.device = "/dev/disk/by-path/virtio-pci-0000:00:0a.0";
@@ -19,4 +22,5 @@
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYA9+GwVMqoxxuAK5DImKASIozfItnpOoZ0KqkG1dRI root@layer7
     ''
   ];
+  system.stateVersion = "25.05";
 }

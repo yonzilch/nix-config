@@ -165,7 +165,5 @@ with lib; {
       };
     };
   };
-
-  system.stateVersion = "25.05";
   time.timeZone = "Asia/Singapore";
 }
