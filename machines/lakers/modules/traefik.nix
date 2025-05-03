@@ -60,6 +60,13 @@
             service = "navidrome";
             tls.certresolver = "myresolver";
           };
+          rclone = {
+            entryPoints = ["websecure"];
+            rule = "Host(`rclone.yzlab.eu.org`)";
+            service = "rclone";
+            tls.certresolver = "myresolver";
+            middlewares = "auth";
+          };
           syncthing = {
             entryPoints = ["websecure"];
             rule = "Host(`lakers-sync.yzlab.eu.org`)";
@@ -89,6 +96,15 @@
               servers = [
                 {
                   url = "http://localhost:4533";
+                }
+              ];
+            };
+          };
+          rclone = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://localhost:5572";
                 }
               ];
             };
