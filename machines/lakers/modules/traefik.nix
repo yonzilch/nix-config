@@ -48,6 +48,12 @@
       http = {
         middlewares.auth.basicauth.users = "yzlab:$2y$10$JJUlCb904PhKLQLFlDTt1eG2Sf93f5QuYCDgKTQpVy4Rcery8tgsu";
         routers = {
+          gotify = {
+            entryPoints = ["websecure"];
+            rule = "Host(`notice.yzlab.eu.org`)";
+            service = "gotify";
+            tls.certresolver = "myresolver";
+          };
           navidrome = {
             entryPoints = ["websecure"];
             rule = "Host(`audio.yzlab.eu.org`)";
@@ -69,6 +75,15 @@
           };
         };
         services = {
+          gotify = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://localhost:11180";
+                }
+              ];
+            };
+          };
           navidrome = {
             loadBalancer = {
               servers = [
