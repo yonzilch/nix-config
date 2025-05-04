@@ -12,4 +12,7 @@ _: {
       "--entrypoint=[\"rclone\", \"rcd\", \"--rc-web-gui\", \"--rc-web-gui-no-open-browser\", \"--rc-addr=0.0.0.0:5572\", \"--rc-no-auth\"]"
     ];
   };
+  services.cron.systemCronJobs = [
+    "0 */2 * * * bash -c 'podman exec rclone rclone sync static-yon-cloudflare: static-yon-tebi:'"
+  ];
 }
