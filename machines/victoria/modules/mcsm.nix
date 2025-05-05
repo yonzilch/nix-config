@@ -1,6 +1,4 @@
 _: {
-  virtualisation.podman.dockerSocket.enable = true;
-
   virtualisation.oci-containers.containers."mcsmanager-web" = {
     image = "ngc7331/mcsmanager-web:latest";
     volumes = [

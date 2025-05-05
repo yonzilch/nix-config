@@ -29,7 +29,7 @@ with lib; {
       "net.ipv4.conf.all.rp_filter" = 0;
     };
     kernelModules = ["tcp_bbr"];
-    #kernelPackages = pkgs.linuxPackages_6_12;
+    # kernelPackages = pkgs.linuxPackages_6_12;
     kernelPackages = inputs.chaotic.legacyPackages.x86_64-linux.linuxPackages_cachyos-server;
     kernelParams = [
       "audit=0"

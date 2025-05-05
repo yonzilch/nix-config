@@ -2,7 +2,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+with lib; {
   boot = {
     kernelParams = [
       "zfs_force=1"
@@ -24,5 +25,8 @@
     };
     autoSnapshot.enable = true;
   };
-  systemd.services.zfs-zed.wantedBy = lib.mkForce [];
+  systemd.services = {
+    zfs-share.enable = mkForce false;
+    zfs-zed.enable = mkForce false;
+  };
 }
