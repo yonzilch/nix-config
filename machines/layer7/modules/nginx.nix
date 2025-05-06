@@ -44,6 +44,16 @@
           proxyWebsockets = true;
         };
       };
+      "ani-rss.yzlab.eu.org" = {
+        forceSSL = true;
+        kTLS = true;
+        sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
+        sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:7789";
+          proxyWebsockets = true;
+        };
+      };
       "media.yzlab.eu.org" = {
         forceSSL = true;
         kTLS = true;
