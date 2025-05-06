@@ -4,11 +4,10 @@
 in {
   imports =
     [
-      ../../modules/options/podman.nix
+      ../../modules/optional/podman.nix
     ]
     ++ ls ./modules
     ++ ls ../../modules/shared
-    ++ ls ../../modules/options
     ++ ls ../../sops/eval/${hostname};
 
   clan.core.networking = {

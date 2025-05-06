@@ -4,8 +4,9 @@
 in {
   imports =
     [
-      ../../modules/options/alist.nix
-      ../../modules/options/podman.nix
+      ../../modules/optional/alist.nix
+      ../../modules/optional/podman.nix
+      ../../modules/optional/terminal-implement.nix
     ]
     ++ ls ./modules
     ++ ls ../../modules/shared

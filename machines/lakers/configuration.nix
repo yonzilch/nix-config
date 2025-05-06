@@ -4,8 +4,8 @@
 in {
   imports =
     [
-      ../../modules/options/podman.nix
-      ../../modules/options/websurfx.nix
+      ../../modules/optional/podman.nix
+      ../../modules/optional/websurfx.nix
     ]
     ++ ls ./modules
     ++ ls ../../modules/shared

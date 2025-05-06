@@ -1,10 +1,10 @@
-_:{
+_: {
   virtualisation.oci-containers.containers."garage" = {
     image = "dxflrs/garage:v1.0.1";
     volumes = [
-      "garage_data:/var/lib/garage/data:rw"
+      "/zhdd/garage:/var/lib/garage/data:rw"
       "garage_meta:/var/lib/garage/meta:rw"
-      "garage_config/etc/garage.toml:rw"
+      "garage_config:/etc/garage.toml:rw"
     ];
     ports = [
       "127.0.0.1:3900:3900/tcp"
