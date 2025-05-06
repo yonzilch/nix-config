@@ -1,6 +1,6 @@
 {config, ...}: {
   virtualisation.oci-containers.containers = {
-    minio = {
+    "minio" = {
       user = "root";
       image = "elestio/minio:latest";
       cmd = ["server" "--address" ":9000" "--console-address" ":9001" "/data"];

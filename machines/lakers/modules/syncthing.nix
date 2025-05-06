@@ -5,7 +5,6 @@ _: {
   };
   virtualisation.oci-containers.containers = {
     syncthing = {
-      hostname = "lakers";
       user = "root";
       image = "lscr.io/linuxserver/syncthing:latest";
       environment = {

@@ -1,13 +1,10 @@
-let
-  inherit (import ../configuration) hostname;
-in {
+_: {
   networking.firewall = {
     allowedTCPPorts = [22000];
     allowedUDPPorts = [21027 22000];
   };
   virtualisation.oci-containers.containers = {
     syncthing = {
-      hostname = "${hostname}";
       user = "root";
       image = "lscr.io/linuxserver/syncthing:latest";
       environment = {
