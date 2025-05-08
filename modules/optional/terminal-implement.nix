@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  environment.systemPackages = [pkgs.zoxide];
+  environment.systemPackages = with pkgs;[
+    helix
+    zoxide
+  ];
   programs.bash = {
     interactiveShellInit = ''
       eval "$(zoxide init bash)"

@@ -11,6 +11,9 @@
     '';
     appendHttpConfig = ''
       access_log off;
+      ssl_session_cache shared:SSL:10m;
+      ssl_session_timeout 10m;
+
       # THEME.PARK
       map $host $theme {
           default catppuccin-mocha;
@@ -79,6 +82,7 @@
         };
       };
       "garage.yzlab.eu.org" = {
+        basicAuthFile = config.sops.secrets.shared-nginx-basicAuthFile.path;
         forceSSL = true;
         kTLS = true;
         sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
@@ -113,7 +117,7 @@
             proxy_set_header Connection "";
             chunked_transfer_encoding off;
           '';
-          proxyPass = "http://127.0.0.1:9000";
+          proxyPass = "http://127.0.0.1:3900";
           #proxyWebsockets = true;
         };
       };

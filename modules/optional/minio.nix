@@ -4,7 +4,7 @@
       user = "root";
       image = "elestio/minio:latest";
       cmd = ["server" "--address" ":9000" "--console-address" ":9001" "/data"];
-      environmentFiles = [config.sops.secrets.layer7-minio-environmentFiles.path];
+      environmentFiles = [config.sops.secrets.xxxxxx.path];
       volumes = [
         "/zhdd/s3:/data"
       ];
