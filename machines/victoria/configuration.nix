@@ -5,6 +5,7 @@ in {
   imports =
     [
       ../../modules/optional/podman.nix
+      ../../modules/optional/terminal-implement.nix
     ]
     ++ ls ./modules
     ++ ls ../../modules/shared
