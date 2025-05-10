@@ -67,10 +67,10 @@
             tls.certresolver = "myresolver";
             middlewares = "auth";
           };
-          websurfx = {
+          searxng = {
             entryPoints = ["websecure"];
             rule = "Host(`search.yzlab.eu.org`)";
-            service = "websurfx";
+            service = "searxng";
             tls.certresolver = "myresolver";
           };
           syncthing = {
@@ -115,11 +115,11 @@
               ];
             };
           };
-          websurfx = {
+          searxng = {
             loadBalancer = {
               servers = [
                 {
-                  url = "http://localhost:8080";
+                  url = "http://localhost:38080";
                 }
               ];
             };
