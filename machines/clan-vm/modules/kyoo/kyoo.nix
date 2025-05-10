@@ -7,10 +7,10 @@ in {
     "traefik" = {
       image = "traefik:latest";
       cmd = [
-      "--providers.docker=true"
-      "--providers.docker.exposedbydefault=false"
-      "--entryPoints.web.address=:8901"
-      "--accesslog=true"
+        "--providers.docker=true"
+        "--providers.docker.exposedbydefault=false"
+        "--entryPoints.web.address=:8901"
+        "--accesslog=true"
       ];
       ports = [
         "8901:8901"

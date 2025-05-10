@@ -33,7 +33,11 @@
     virtualHosts = {
       "_" = {
         forceSSL = true;
-        root = "/dev/null";
+        locations."/" = {
+          extraConfig = ''
+            return 403;
+          '';
+        };
         sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
         sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
       };
@@ -89,16 +93,6 @@
         sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
         locations."/" = {
           proxyPass = "http://127.0.0.1:3909";
-          proxyWebsockets = true;
-        };
-      };
-      "minio.yzlab.eu.org" = {
-        forceSSL = true;
-        kTLS = true;
-        sslCertificate = config.sops.secrets.shared-nginx-self-sign-crt.path;
-        sslCertificateKey = config.sops.secrets.shared-nginx-self-sign-key.path;
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:9001";
           proxyWebsockets = true;
         };
       };
@@ -163,6 +157,13 @@
         locations."/" = {
           proxyPass = "http://127.0.0.1:5244";
           proxyWebsockets = true;
+          extraConfig = ''
+            proxy_set_header Host $host;
+            proxy_set_header Accept-Encoding "";
+            sub_filter 'g.alicdn.com' 'localhost';
+            sub_filter_once off;
+            sub_filter_types *;
+          '';
         };
       };
     };
