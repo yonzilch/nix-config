@@ -12,7 +12,25 @@ _: {
       "--entrypoint=[\"rclone\", \"rcd\", \"--rc-web-gui\", \"--rc-web-gui-no-open-browser\", \"--rc-addr=0.0.0.0:5572\", \"--rc-no-auth\"]"
     ];
   };
-  services.cron.systemCronJobs = [
-    "0 */2 * * * bash -c 'podman exec rclone rclone sync static-yon-cloudflare:static-yon static-yon-tebi:static.yon.im'"
-  ];
+
+  systemd.services.rclone-sync = {
+    enable = true;
+    description = "Rclone sync static-yon-cloudflare to static-yon-tebi";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/run/current-system/sw/bin/podman exec rclone rclone sync static-yon-cloudflare:static-yon static-yon-tebi:static.yon.im";
+      User="root";
+    };
+    after = [ "network.target" ];
+  };
+
+  systemd.timers.rclone-sync = {
+    enable = true;
+    description = "Rclone sync static-yon-cloudflare to static-yon-tebi every 2 hours";
+    timerConfig = {
+      OnCalendar = "*:0/2";
+      Persistent = true;
+    };
+    wantedBy = [ "timers.target" ];
+  };
 }

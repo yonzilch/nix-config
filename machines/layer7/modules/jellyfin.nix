@@ -10,6 +10,7 @@ _: {
       volumes = [
         "jellyfin:/config:rw"
         "/zhdd/torrent:/data:rw"
+        "/mnt/rclone:/mnt/rclone:ro"
       ];
       ports = [
         "127.0.0.1:8096:8096"

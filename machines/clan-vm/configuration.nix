@@ -1,11 +1,14 @@
-{lib, ...}: {
+{lib, ...}: let
+  hostname = "clan-vm";
+  ls = lib.filesystem.listFilesRecursive;
+in {
   imports =
     [
       ../../modules/optional/podman.nix
       ../../modules/optional/terminal-implement.nix
     ]
-    ++ lib.filesystem.listFilesRecursive ./modules
-    ++ lib.filesystem.listFilesRecursive ../../modules/shared;
+    ++ ls ../../modules/shared
+    ++ ls ../../sops/eval/${hostname};
 
   clan.core.networking = {
     targetHost = "root@clan-vm";

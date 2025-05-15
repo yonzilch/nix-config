@@ -1,6 +1,6 @@
 {lib, ...}: {
   imports = [
-    ../../sops/eval/azure-hight/neko.nix
+    ../../sops/eval/azure-hight/neko
     ../../modules/shared/bootstrap.nix
     ../../modules/shared/clan.nix
     ../../modules/shared/nix.nix
