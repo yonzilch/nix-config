@@ -1,11 +1,11 @@
 _: {
   networking.firewall = {
-    allowedTCPPorts = [6887];
-    allowedUDPPorts = [6887];
+    allowedTCPPorts = [6881];
+    allowedUDPPorts = [6881];
   };
   virtualisation.oci-containers.containers = {
     qbittorrent = {
-      user = "root";
+      pull = "newer";
       image = "lscr.io/linuxserver/qbittorrent:latest";
       environment = {
         PUID = "0";
@@ -17,12 +17,11 @@ _: {
       volumes = [
         "qbittorrent:/config"
         "/zhdd/torrent/downloads:/downloads"
-        "/zhdd/torrent/Media:/Media"
       ];
       ports = [
         "127.0.0.1:8080:8080"
-        "6887:6887/tcp"
-        "6887:6887/udp"
+        "6881:6881/tcp"
+        "6881:6881/udp"
       ];
     };
   };
