@@ -1,11 +1,14 @@
-{lib, ...}: {
+{lib, ...}: let
+  hostname = "azure-hight";
+  ls = lib.filesystem.listFilesRecursive;
+in {
   imports = [
-    ../../sops/eval/azure-hight/neko
     ../../modules/shared/bootstrap.nix
     ../../modules/shared/clan.nix
     ../../modules/shared/nix.nix
     ../../modules/shared/minimize.nix
-  ];
+  ]
+  ++ ls ../../sops/eval/${hostname};
 
   clan.core.networking = {
     targetHost = "root@azure-hight";

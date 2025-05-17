@@ -1,15 +1,27 @@
 {
-	"data": "ENC[AES256_GCM,data:pMNUnDjz0tBphzEKtIMcNZK0GJmOn3Omm/IGjztlXuHEt+brfMWTYggvJjzv1yevSdByfPXbCvBYXT+bUqFn046vD6AOkR57+6myAFsV5LQ8H1kyNP6a5VHOP5SuiP/RP3vrzCiB1gt6Bcy/6tjqkBoq+lZARi3H4D+kllo+QU5HDcu4a8Dwwj6xT5lX8fMsSHtjepMBbfdO8w63NDOh/H530MiLaE9p7MjYjDQcZvpmEx6GH2tY0hlpnxezL87wWmPtJzVL/3DbWu2u0BuGMWoRHxciyzOG3Z58FrW6uw0+8EN2zNBxcIcScI6jaRgLYHmVwt5IivFMs1yug81TbTZxrXRGqjz8NL+nr3bu83ao8geKjle3bRVOJac1uTZFYxJ0hNDfXCVpJCvgCeLfCAmDmP/dd+E3v5at9Sh5vzVmUVuEN9SttG/GEXVxqnSIRj4MNK6PUFIqTifAoXs9if61LD3Lpb7L6wxfQY/ph/GwzJpjdcjRdOFc2ft1z5/pe+uOGyp/JlXwk3VRxw7AvEmxTEuMWQ0QsrBoS1Igy0qd328hLcB1GvxyK9jobT502NEYHt4TlJLxLFfDUOMp6AFoi794+Uefk2gJCxoBUiyn9WNEYnI=,iv:7T5Ogc5itNGV2voSjxVCZsFXi463zpVDcJhZlvpxxS8=,tag:xkiTImKLu03Nfp8oMbvc9g==,type:str]",
-	"sops": {
-		"age": [
-			{
-				"recipient": "age1yzce0p359lc6lfg087l3mvj0yrqd4x9526yyvnj2qet6t3ufnuns8f6rel",
-				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBDU2VuMVFrYzdGdEtjN0Fp\nOG9DdVBvcWZlM1d3RlFVZWdvVWx6b0djNXhRCktZaE5TVHdxWFdtTWNNLzNoQ3lB\nQXRhQzg2eTQxd0tzTll3ZVJqNnNYSzgKLS0tIHdzNkIyU1VxeWEvOEZITDk2eCta\nTUtqV3dCQVVPNzRZUzVQdUs5TnBsK2cK1+0/qbuf16sn4zV6xRqZWPvf1vR8zMVi\npO96aAOvLcuZYKlv4NRB8B2BoKLUEROAGcgH23PuY/94p554Q5Mvqw==\n-----END AGE ENCRYPTED FILE-----\n"
-			}
-		],
-		"lastmodified": "2025-05-13T13:33:38Z",
-		"mac": "ENC[AES256_GCM,data:do/uEtuCtvkaTamNL1r8N+esfyNz3fJ0Jf7MyCWDL1uaAgefsagHNcTNsSggafqUn+6j9l7uvW27ZJ/Mbe0pjffTT4XgWb7tZBWgT5TJ6xVPBzsQ7u6RvLOSqJ0FujTV/ykklEWTlAMjhGr74jItQhSGLJg4i9/ct37q9i8oyYs=,iv:vdK5L4AWB3gqiBgXSHLwiUpjhVKrTCt/XbmSidYlhCY=,tag:j90uKyQMv1FwlS4g+4yZVw==,type:str]",
-		"unencrypted_suffix": "_unencrypted",
-		"version": "3.10.2"
-	}
+  lib,
+  ...
+}:
+{
+  networking.useDHCP = lib.mkForce false;
+  systemd.network = {
+    enable = true;
+    networks.eth0 = {
+      address = [
+        "45.8.114.251/24"
+        "2a12:a304:4:1cc::a/64"
+      ];
+      gateway = [ "45.8.114.1" ];
+      matchConfig.Name = "eth0";
+      networkConfig = {
+        IPv6AcceptRA = false;
+      };
+      routes = [
+        {
+          Gateway = "2a12:a304:4::1";
+          GatewayOnLink = true;
+        }
+      ];
+    };
+  };
 }
