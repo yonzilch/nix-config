@@ -15,10 +15,10 @@ _: {
 
   systemd.services.rclone-sync = {
     enable = true;
-    description = "Rclone sync static-yon-cloudflare to static-yon-tebi";
+    description = "Rclone sync static-yon-tebi to static-yon-cloudflare";
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "/run/current-system/sw/bin/podman exec rclone rclone sync static-yon-cloudflare:static-yon static-yon-tebi:static.yon.im";
+      ExecStart = "/run/current-system/sw/bin/podman exec rclone rclone sync --auto-confirm static-yon-tebi:static.yon.im static-yon-cloudflare:static-yon";
       User="root";
     };
     after = [ "network.target" ];
