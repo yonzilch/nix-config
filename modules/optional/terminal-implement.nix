@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     helix
     zoxide
+    zellij
   ];
   programs.bash = {
     interactiveShellInit = ''

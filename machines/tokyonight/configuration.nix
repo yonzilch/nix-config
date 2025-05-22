@@ -1,12 +1,17 @@
-{lib, ...}: {
+{lib, ...}: let
+  hostname = "tokyonight";
+  ls = lib.filesystem.listFilesRecursive;
+in {
   imports =
     [
+      ../../modules/optional/podman.nix
     ]
-    ++ lib.filesystem.listFilesRecursive ../../modules/shared
-    ++ lib.filesystem.listFilesRecursive ../../sops/eval/tokyonight;
+    ++ ls ./modules
+    ++ ls ../../modules/shared
+    ++ ls ../../sops/eval/${hostname};
 
   clan.core.networking = {
-    targetHost = "root@tokyonight";
+    targetHost = "root@${hostname}";
   };
 
   disko.devices.disk.main.device = "/dev/disk/by-path/virtio-pci-0000:00:07.0";

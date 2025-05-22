@@ -5,7 +5,7 @@ _: {
   };
   virtualisation.oci-containers.containers = {
     syncthing = {
-      user = "root";
+      pull = "newer";
       image = "lscr.io/linuxserver/syncthing:latest";
       environment = {
         PUID = "1000";

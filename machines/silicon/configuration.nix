@@ -1,17 +1,20 @@
-{lib, ...}: {
+{lib, ...}: let
+  hostname = "silicon";
+  ls = lib.filesystem.listFilesRecursive;
+in {
   imports =
     [
+      ../../modules/optional/podman.nix
+      ../../modules/optional/terminal-implement.nix
     ]
-    ++ lib.filesystem.listFilesRecursive ../../modules/shared
-    ++ lib.filesystem.listFilesRecursive ../../sops/eval/silicon;
+    ++ ls ../../modules/shared
+    ++ ls ../../sops/eval/${hostname};
 
   clan.core.networking = {
-    targetHost = "root@silicon";
+    targetHost = "root@${hostname}";
   };
 
   disko.devices.disk.main.device = "/dev/disk/by-path/virtio-pci-0000:00:07.0";
-
-  networking.hostId = "e6e33d2d";
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''

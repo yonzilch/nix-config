@@ -1,7 +1,7 @@
 _: {
   virtualisation.oci-containers.containers = {
     "jellyfin" = {
-      user = "root";
+      pull = "newer";
       image = "lscr.io/linuxserver/jellyfin:latest";
       environment = {
         PUID = "0";

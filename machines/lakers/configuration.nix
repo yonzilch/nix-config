@@ -5,7 +5,6 @@ in {
   imports =
     [
       ../../modules/optional/podman.nix
-      ../../modules/optional/websurfx.nix
     ]
     ++ ls ./modules
     ++ ls ../../modules/shared
@@ -29,5 +28,4 @@ in {
       ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOuyKrMZOdP06Ab05PYnM7Ydy9KLiCfEgjXGVsJimaNX root@lakers
     ''
   ];
-  system.stateVersion = "25.05";
 }

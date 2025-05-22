@@ -7,7 +7,6 @@ in {
       ../../modules/optional/alist.nix
       ../../modules/optional/podman.nix
       ../../modules/optional/terminal-implement.nix
-      ../../modules/optional/zellij.nix
     ]
     ++ ls ./modules
     ++ ls ../../modules/shared
