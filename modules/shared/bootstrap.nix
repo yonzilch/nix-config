@@ -126,6 +126,10 @@ with lib; {
         X11Forwarding = false;
       };
     };
+    scx = {
+      enable = true;
+      scheduler = "scx_bpfland";
+    };
     unbound = {
       enable = true;
       settings = {
