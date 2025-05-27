@@ -9,7 +9,7 @@
   ];
 
   # Locale service discovery and mDNS
-  services.avahi.enable = true;
+  #services.avahi.enable = true;
 
   # generate a random password for our user below
   # can be read using `clan secrets get <machine-name>-user-password` command
