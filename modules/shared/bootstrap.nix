@@ -21,6 +21,21 @@ with lib; {
       "net.core.default_qdisc" = "fq";
       "net.ipv4.tcp_congestion_control" = "bbr";
 
+      # buffer size
+      # see https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes
+      "net.core.rmem_max" = 7500000;
+      "net.core.wmem_max" = 7500000;
+
+      # tune tcp
+      # see https://blog.cloudflare.com/optimizing-tcp-for-high-throughput-and-low-latency/
+      "net.ipv4.tcp_adv_win_scale" = -2;
+      "net.ipv4.tcp_collapse_max_bytes" = 6291456;
+      "net.ipv4.tcp_fack" = 1;
+      "net.ipv4.tcp_fastopen" = 3;
+      "net.ipv4.tcp_notsent_lowat" = 131072;
+      "net.ipv4.tcp_rmem" = "8192 262144 536870912";
+      "net.ipv4.tcp_wmem" = "4096 16384 536870912";
+
       # DN42
       "net.ipv4.ip_forward" = 1;
       "net.ipv6.conf.default.forwarding" = 1;

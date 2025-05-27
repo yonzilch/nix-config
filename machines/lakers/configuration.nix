@@ -4,9 +4,10 @@
 in {
   imports =
     [
+      ../../modules/optional/alist.nix
       ../../modules/optional/podman.nix
     ]
-    ++ ls ./modules
+    # ++ ls ./modules
     ++ ls ../../modules/shared
     ++ ls ../../sops/eval/${hostname};
 
