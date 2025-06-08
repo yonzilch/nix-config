@@ -13,6 +13,7 @@ _: {
         WEBUI_PORT = "8080";
         TORRENTING_PORT = "6881";
         TZ = "Asia/Singapore";
+        DOCKER_MODS = "ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest";
       };
       volumes = [
         "qbittorrent:/config"
