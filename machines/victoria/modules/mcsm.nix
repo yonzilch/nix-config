@@ -1,4 +1,22 @@
-_: {
+{pkgs, ...}: {
+  # run podman exec mcsmanager-daemon apk update && podman exec mcsmanager-daemon apk add openjdk8 to install java8
+  systemd.services.install-jdk8-for-mcsmanager-daemon = {
+    wantedBy = ["multi-user.target"];
+    after = ["podman-mcsmanager-daemon.service"];
+    description = "install-jdk8-for-mcsmanager-daemon";
+    # Without this line, it would Error: configure storage:
+    # the 'zfs' command is not available:
+    # prerequisites for driver not satisfied (wrong filesystem?)
+    path = with pkgs; [zfs];
+    serviceConfig = {
+      Type = "oneshot";
+      SuccessExitStatus = "0 1";
+      ExecStart = ''
+        ${pkgs.podman}/bin/podman exec -i mcsmanager-daemon bash -c "apk update && apk add openjdk8"
+        '';
+    };
+  };
+
   virtualisation.oci-containers.containers."mcsmanager-web" = {
     image = "ngc7331/mcsmanager-web:latest";
     volumes = [
@@ -22,7 +40,7 @@ _: {
     ];
     ports = [
       "127.0.0.1:24444:24444/tcp"
-      # "25565:25565/tcp"
+      "25565:25565"
     ];
   };
 }

@@ -10,7 +10,7 @@ _: {
       };
       volumes = [
         "jellyfin:/config:rw"
-        "/mnt/rclone:/mnt/rclone:ro"
+        "/zhdd:/zhdd"
         "/var/lib/containers/storage/volumes/syncthing:/syncthing:ro"
       ];
       ports = [
