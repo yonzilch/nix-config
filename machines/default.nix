@@ -9,7 +9,7 @@
   clan = {
     machines = {
       "example" = {
-        clan.deployment.requireExplicitUpdate = true;
+        clan.core.deployment.requireExplicitUpdate = true;
       };
     };
     meta.name = "yzlab";

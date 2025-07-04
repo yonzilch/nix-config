@@ -6,7 +6,7 @@
     clan-core = {
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+      url = "https://git.clan.lol/clan/clan-core/archive/5cc8f3b2b3a12378f4bb4f44def7232440b28f2c.tar.gz";
     };
     flake-parts = {
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -16,26 +16,24 @@
   };
 
   outputs = inputs @ {flake-parts, ...}:
-    flake-parts.lib.mkFlake {inherit inputs;} (
-      _: {
-        imports = [./machines];
-        systems = ["x86_64-linux"];
-        perSystem = {
-          inputs',
-          pkgs,
-          ...
-        }: {
-          devShells.default = pkgs.mkShell {
-            packages = with pkgs; [
-              inputs'.clan-core.packages.clan-cli
-              alejandra
-              commitlint-rs
-              compose2nix
-              deadnix
-              sops
-            ];
-          };
+    flake-parts.lib.mkFlake {inherit inputs;} (_: {
+      imports = [./machines];
+      systems = ["x86_64-linux"];
+      perSystem = {
+        inputs',
+        pkgs,
+        ...
+      }: {
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            inputs'.clan-core.packages.clan-cli
+            alejandra
+            commitlint-rs
+            compose2nix
+            deadnix
+            sops
+          ];
         };
-      }
-    );
+      };
+    });
 }

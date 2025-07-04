@@ -13,7 +13,7 @@
       SuccessExitStatus = "0 1";
       ExecStart = ''
         ${pkgs.podman}/bin/podman exec -i mcsmanager-daemon bash -c "apk update && apk add openjdk8"
-        '';
+      '';
     };
   };
 

@@ -4,7 +4,7 @@
 in {
   imports =
     [
-      ../../modules/optional/alist.nix
+      ../../modules/optional/openlist.nix
       ../../modules/optional/podman.nix
       ../../modules/optional/terminal-implement.nix
     ]
