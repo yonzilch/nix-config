@@ -9,7 +9,11 @@ with lib; {
     extraModprobeConfig = "blacklist mei mei_hdcp mei_me mei_pxp iTCO_wdt pstore sp5100_tco";
     initrd = {
       compressor = "zstd";
-      compressorArgs = ["-T0" "-19" "--long"];
+      compressorArgs = [
+        "-T0"
+        "-19"
+        "--long"
+      ];
       systemd.enable = true;
       verbose = false;
     };
@@ -57,12 +61,13 @@ with lib; {
       "nowatchdog"
       "quiet"
     ];
-    loader.grub = {
-      configurationLimit = 10;
-      efiSupport = true;
+    loader.limine = {
+      biosDevice = "nodev";
+      biosSupport = true;
       efiInstallAsRemovable = true;
+      efiSupport = true;
       enable = true;
-      device = "nodev";
+      maxGenerations = 10;
     };
     tmp.cleanOnBoot = true;
   };
@@ -92,7 +97,10 @@ with lib; {
       allowedUDPPorts = [443];
       logRefusedConnections = false;
     };
-    nameservers = ["127.0.0.1" "::1"];
+    nameservers = [
+      "127.0.0.1"
+      "::1"
+    ];
     networkmanager = {
       dns = "none";
       enable = mkForce false;
@@ -155,7 +163,10 @@ with lib; {
           do-udp = true;
           hide-identity = true;
           hide-version = true;
-          interface = ["127.0.0.1" "::1"];
+          interface = [
+            "127.0.0.1"
+            "::1"
+          ];
           num-threads = 2;
           prefetch = true;
           qname-minimisation = true;
