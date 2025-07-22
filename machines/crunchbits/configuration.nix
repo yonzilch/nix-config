@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports =
     [
+      ../../modules/optional/zfs.nix
     ]
     ++ lib.filesystem.listFilesRecursive ../../modules/shared
     ++ lib.filesystem.listFilesRecursive ../../sops/eval/crunchbits;

@@ -1,14 +1,12 @@
 {lib, ...}: let
-  primary-device = "/dev/disk/by-path/virtio-pci-0000:00:06.0";
-  hostname = "slick";
+  primary-device = "/dev/disk/by-path/pci-0000:00:05.0-scsi-0:0:0:0";
+  hostname = "vivalavida";
   ls = lib.filesystem.listFilesRecursive;
 in {
   imports =
     [
-      ../../modules/optional/openlist.nix
-      ../../modules/optional/qbee.nix
       ../../modules/optional/terminal-implement.nix
-      ../../modules/optional/wget.nix
+      ../../modules/optional/zfs.nix
     ]
     ++ ls ../../modules/shared
     ++ ls ../../sops/eval/${hostname};
@@ -23,16 +21,16 @@ in {
 
   disko.devices.disk.main.device = primary-device;
 
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 4096;
-    }
-  ];
+  # swapDevices = [
+  #   {
+  #     device = "/swapfile";
+  #     size = 4096;
+  #   }
+  # ];
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''
-      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJCYAI/LptRV1UpYdTsz6Znvswht0nsceTFdXH3biMaA id_ed25519_root@slick
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAO052vG7D6I9eSZkKSvccuSqPX57aryKklvR3B481gp vivalavida
     ''
   ];
 }

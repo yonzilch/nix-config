@@ -6,6 +6,7 @@ in {
     [
       ../../modules/optional/openlist.nix
       ../../modules/optional/podman.nix
+      ../../modules/optional/zfs.nix
     ]
     # ++ ls ./modules
     ++ ls ../../modules/shared

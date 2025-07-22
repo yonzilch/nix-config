@@ -2,6 +2,7 @@
   imports =
     [
       # ../../sops/eval/example/xxxxxx.nix
+      # ../../modules/optional/zfs.nix
     ]
     ++ lib.filesystem.listFilesRecursive ../../modules/shared;
 

@@ -6,6 +6,7 @@ in {
     [
       ../../modules/optional/podman.nix
       ../../modules/optional/terminal-implement.nix
+      ../../modules/optional/zfs.nix
     ]
     ++ ls ./modules
     ++ ls ../../modules/shared

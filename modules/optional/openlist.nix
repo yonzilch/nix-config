@@ -41,7 +41,10 @@ in {
   config = mkIf cfg.enable {
     systemd.services.openlist-server = {
       wantedBy = ["multi-user.target"];
-      after = ["network.target"];
+      after = [
+        "network.target"
+        "nss-lookup.target"
+      ];
       description = "openlist";
       serviceConfig = {
         Type = "simple";

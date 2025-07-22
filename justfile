@@ -9,7 +9,7 @@ anywhere input:
 
 anywhere-lb input:
   # perform nixos-anywhere install (local builder)
-  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./machines/{{input}}/hardware-configuration.nix --flake .#{{input}} --target-host root@{{input}} --build-on local
+  nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./machines/{{input}}/hardware-configuration.nix --flake .#{{input}} --target-host root@{{input}} --build-on local --show-trace
 
 
 anywhere-vm input:

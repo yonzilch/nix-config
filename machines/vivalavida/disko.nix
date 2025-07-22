@@ -1,19 +1,7 @@
-{
-  clan-core,
-  config,
-  ...
-}: let
-  suffix = config.clan.core.vars.generators.disk-id.files.diskId.value;
-in {
-  imports = [
-    clan-core.clanModules.disk-id
-  ];
-
+_: {
   disko.devices = {
     disk = {
       "main" = {
-        # suffix is to prevent disk name collisions
-        name = "main-" + suffix;
         type = "disk";
         content = {
           type = "gpt";
@@ -24,7 +12,7 @@ in {
               priority = 1;
             };
             ESP = {
-              size = "256M";
+              size = "128M";
               type = "EF00";
               content = {
                 type = "filesystem";
