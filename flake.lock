@@ -30,28 +30,26 @@
         "flake-parts": [
           "flake-parts"
         ],
-        "flake-utils": "flake-utils",
         "nix-darwin": "nix-darwin",
         "nix-select": "nix-select",
         "nixos-facter-modules": "nixos-facter-modules",
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nuschtos": "nuschtos",
         "sops-nix": "sops-nix",
-        "systems": "systems",
+        "systems": "systems_2",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1751473951,
-        "narHash": "sha256-9nHfJziiv21dcNlibRmknLxYUsRS5rB12/vcPmzoruA=",
-        "rev": "5cc8f3b2b3a12378f4bb4f44def7232440b28f2c",
+        "lastModified": 1753272645,
+        "narHash": "sha256-UbSHntixoYA4m4Q3lzt7RttlqeyYAHlPMTJ6G0lRCF8=",
+        "rev": "329047e865353602413100425c4ad84f4b833954",
         "type": "tarball",
-        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/5cc8f3b2b3a12378f4bb4f44def7232440b28f2c.tar.gz"
+        "url": "https://git.clan.lol/api/v1/repos/clan/clan-core/archive/329047e865353602413100425c4ad84f4b833954.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://git.clan.lol/clan/clan-core/archive/5cc8f3b2b3a12378f4bb4f44def7232440b28f2c.tar.gz"
+        "url": "https://git.clan.lol/clan/clan-core/archive/main.tar.gz"
       }
     },
     "data-mesher": {
@@ -64,10 +62,7 @@
           "clan-core",
           "nixpkgs"
         ],
-        "systems": [
-          "clan-core",
-          "systems"
-        ],
+        "systems": "systems",
         "treefmt-nix": [
           "clan-core",
           "treefmt-nix"
@@ -140,27 +135,6 @@
         "url": "https://flakehub.com/f/DeterminateSystems/flake-schemas/%3D0.1.5.tar.gz"
       }
     },
-    "flake-utils": {
-      "inputs": {
-        "systems": [
-          "clan-core",
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -179,34 +153,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "ixx": {
-      "inputs": {
-        "flake-utils": [
-          "clan-core",
-          "nuschtos",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "clan-core",
-          "nuschtos",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1748294338,
-        "narHash": "sha256-FVO01jdmUNArzBS7NmaktLdGA5qA3lUMJ4B7a05Iynw=",
-        "owner": "NuschtOS",
-        "repo": "ixx",
-        "rev": "cc5f390f7caf265461d4aab37e98d2292ebbdb85",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NuschtOS",
-        "ref": "v0.0.8",
-        "repo": "ixx",
         "type": "github"
       }
     },
@@ -336,32 +282,6 @@
         "type": "github"
       }
     },
-    "nuschtos": {
-      "inputs": {
-        "flake-utils": [
-          "clan-core",
-          "flake-utils"
-        ],
-        "ixx": "ixx",
-        "nixpkgs": [
-          "clan-core",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1749730855,
-        "narHash": "sha256-L3x2nSlFkXkM6tQPLJP3oCBMIsRifhIDPMQQdHO5xWo=",
-        "owner": "NuschtOS",
-        "repo": "search",
-        "rev": "8dfe5879dd009ff4742b668d9c699bc4b9761742",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NuschtOS",
-        "repo": "search",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "chaotic": "chaotic",
@@ -413,6 +333,20 @@
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "id": "systems",
+        "type": "indirect"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

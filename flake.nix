@@ -6,7 +6,7 @@
     clan-core = {
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      url = "https://git.clan.lol/clan/clan-core/archive/5cc8f3b2b3a12378f4bb4f44def7232440b28f2c.tar.gz";
+      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
     };
     flake-parts = {
       inputs.nixpkgs-lib.follows = "nixpkgs";

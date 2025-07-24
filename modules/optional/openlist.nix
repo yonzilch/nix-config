@@ -39,7 +39,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    systemd.services.openlist-server = {
+    systemd.services.openlist = {
       wantedBy = ["multi-user.target"];
       after = [
         "network.target"

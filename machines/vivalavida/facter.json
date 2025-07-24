@@ -416,7 +416,7 @@
           "/dev/disk/by-label/cidata",
           "/dev/disk/by-path/pci-0000:00:01.1-ata-2",
           "/dev/disk/by-path/pci-0000:00:01.1-ata-2.0",
-          "/dev/disk/by-uuid/2025-07-22-16-33-05-00",
+          "/dev/disk/by-uuid/2025-07-24-08-26-01-00",
           "/dev/sr0"
         ],
         "unix_device_name2": "/dev/sg1",
@@ -875,7 +875,7 @@
           {
             "type": "mem",
             "base": 0,
-            "range": 8331026432,
+            "range": 8331018240,
             "enabled": true,
             "access": "read_write",
             "prefetch": "unknown"
@@ -1213,29 +1213,6 @@
     "network_interface": [
       {
         "index": 26,
-        "attached_to": 0,
-        "class_list": [
-          "network_interface"
-        ],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Loopback",
-          "value": 0
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_name": "lo",
-        "unix_device_names": [
-          "lo"
-        ]
-      },
-      {
-        "index": 27,
         "attached_to": 18,
         "class_list": [
           "network_interface"
@@ -1274,6 +1251,29 @@
         ],
         "driver_modules": [
           "virtio_net"
+        ]
+      },
+      {
+        "index": 27,
+        "attached_to": 0,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "unix_device_name": "lo",
+        "unix_device_names": [
+          "lo"
         ]
       }
     ],

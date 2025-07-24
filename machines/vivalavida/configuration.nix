@@ -5,8 +5,8 @@
 in {
   imports =
     [
+      ../../modules/optional/qb.nix
       ../../modules/optional/terminal-implement.nix
-      ../../modules/optional/zfs.nix
     ]
     ++ ls ../../modules/shared
     ++ ls ../../sops/eval/${hostname};
@@ -21,12 +21,12 @@ in {
 
   disko.devices.disk.main.device = primary-device;
 
-  # swapDevices = [
-  #   {
-  #     device = "/swapfile";
-  #     size = 4096;
-  #   }
-  # ];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 4096;
+    }
+  ];
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''
