@@ -11,6 +11,10 @@ in {
     ++ ls ../../modules/shared
     ++ ls ../../sops/eval/${hostname};
 
+  boot.loader.limine = {
+    biosDevice = lib.mkForce primary-device;
+  };
+
   clan.core.networking = {
     targetHost = "root@${hostname}";
   };
