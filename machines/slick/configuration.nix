@@ -7,6 +7,7 @@ in {
     [
       ../../modules/optional/openlist.nix
       ../../modules/optional/qbee.nix
+      ../../modules/optional/st.nix
       ../../modules/optional/terminal-implement.nix
       ../../modules/optional/wget.nix
     ]

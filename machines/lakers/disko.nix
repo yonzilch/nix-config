@@ -1,19 +1,7 @@
-{
-  clan-core,
-  config,
-  ...
-}: let
-  suffix = config.clan.core.vars.generators.disk-id.files.diskId.value;
-in {
-  imports = [
-    clan-core.clanModules.disk-id
-  ];
-
+_: {
   disko.devices = {
     disk = {
-      "main" = {
-        # suffix is to prevent disk name collisions
-        name = "main-" + suffix;
+      main = {
         type = "disk";
         content = {
           type = "gpt";
@@ -23,55 +11,33 @@ in {
               type = "EF02";
               priority = 1;
             };
-            ESP = {
-              size = "256M";
+            esp = {
+              size = "128M";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = ["nofail"];
+                mountOptions = ["umask=0077"];
               };
             };
-            zfs = {
-              size = "100%";
+            root = {
+              name = "root";
+              end = "-0";
               content = {
-                type = "zfs";
-                pool = "zroot";
+                type = "filesystem";
+                format = "f2fs";
+                mountpoint = "/";
+                extraArgs = [
+                  "-O"
+                  "extra_attr,inode_checksum,sb_checksum,compression"
+                ];
+                mountOptions = [
+                  "compress_algorithm=zstd:6,compress_chksum,atgc,gc_merge,lazytime,nodiscard"
+                ];
               };
             };
           };
-        };
-      };
-    };
-    zpool = {
-      zroot = {
-        type = "zpool";
-        datasets = {
-          "root" = {
-            mountpoint = "/";
-            options = {
-              mountpoint = "legacy";
-              "com.sun:auto-snapshot" = "false";
-            };
-            type = "zfs_fs";
-          };
-          "root/nix" = {
-            mountpoint = "/nix";
-            options."com.sun:auto-snapshot" = "false";
-            type = "zfs_fs";
-          };
-        };
-        options = {
-          ashift = "12";
-          compatibility = "grub2";
-        };
-        rootFsOptions = {
-          acltype = "posixacl";
-          atime = "off";
-          compression = "lz4";
-          mountpoint = "none";
-          xattr = "sa";
         };
       };
     };

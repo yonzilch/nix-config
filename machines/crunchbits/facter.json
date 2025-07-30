@@ -97,8 +97,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -177,8 +181,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -325,8 +333,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -405,8 +417,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -485,8 +501,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -633,8 +653,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -713,8 +737,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -793,8 +821,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -929,8 +961,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -1009,8 +1045,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -1089,8 +1129,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -1169,8 +1213,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -1249,8 +1297,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -1329,8 +1381,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -1409,8 +1465,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       },
@@ -1489,8 +1549,12 @@
           "prog_if": 0
         },
         "driver": "pcieport",
+        "driver_module": "pcieportdrv",
         "drivers": [
           "pcieport"
+        ],
+        "driver_modules": [
+          "pcieportdrv"
         ],
         "module_alias": "pci:v00001B36d0000000Csv00001B36sd00000000bc06sc04i00"
       }
@@ -1556,7 +1620,6 @@
         },
         "unix_device_names": [
           "/dev/cdrom",
-          "/dev/disk/by-diskseq/12",
           "/dev/disk/by-id/ata-QEMU_DVD-ROM_QM00001",
           "/dev/disk/by-path/pci-0000:00:1f.2-ata-1",
           "/dev/disk/by-path/pci-0000:00:1f.2-ata-1.0",
@@ -1586,8 +1649,8 @@
         "architecture": "x86_64",
         "vendor_name": "GenuineIntel",
         "family": 6,
-        "model": 61,
-        "stepping": 2,
+        "model": 79,
+        "stepping": 1,
         "features": [
           "fpu",
           "vme",
@@ -1619,6 +1682,7 @@
           "rdtscp",
           "lm",
           "constant_tsc",
+          "arch_perfmon",
           "rep_good",
           "nopl",
           "xtopology",
@@ -1630,6 +1694,7 @@
           "ssse3",
           "fma",
           "cx16",
+          "pdcm",
           "pcid",
           "sse4_1",
           "sse4_2",
@@ -1685,26 +1750,26 @@
           "mds",
           "swapgs",
           "taa",
-          "srbds",
-          "mmio_unknown",
+          "mmio_stale_data",
           "bhi",
-          "ibpb_no_ret"
+          "ibpb_no_ret",
+          "its"
         ],
         "bogo": 5187.98,
-        "cache": 16384,
+        "cache": 35840,
         "units": 2,
         "physical_id": 0,
         "siblings": 2,
         "cores": 2,
         "fpu": true,
         "fpu_exception": true,
-        "cpuid_level": 13,
+        "cpuid_level": 20,
         "write_protect": false,
         "clflush_size": 64,
         "cache_alignment": 64,
         "address_sizes": {
-          "physical": 40,
-          "virtual": 48
+          "physical": "0x2e",
+          "virtual": "0x30"
         }
       }
     ],
@@ -1763,11 +1828,10 @@
           "range": 16
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/11",
           "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi3-0-0-2",
           "/dev/disk/by-label/cidata",
           "/dev/disk/by-path/pci-0000:0a:00.0-scsi-0:0:0:2",
-          "/dev/disk/by-uuid/2025-03-30-08-47-34-00",
+          "/dev/disk/by-uuid/2025-07-27-14-14-42-00",
           "/dev/sdb"
         ],
         "unix_device_name2": "/dev/sg1",
@@ -1783,7 +1847,7 @@
             "cylinders": 736,
             "heads": 1,
             "sectors": 1,
-            "size": 0,
+            "size": "0x0",
             "geo_type": "logical"
           },
           {
@@ -1858,7 +1922,6 @@
           "range": 16
         },
         "unix_device_names": [
-          "/dev/disk/by-diskseq/10",
           "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-0-0",
           "/dev/disk/by-path/pci-0000:04:00.0-scsi-0:0:0:0",
           "/dev/sda"
@@ -1876,7 +1939,7 @@
             "cylinders": 25600,
             "heads": 64,
             "sectors": 32,
-            "size": 0,
+            "size": "0x0",
             "geo_type": "logical"
           },
           {
@@ -2022,7 +2085,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.19 xhci-hcd",
+          "name": "Linux 6.14.10 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2032,11 +2095,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.12",
+          "name": "6.14",
           "value": 0
         },
         "serial": "0000:05:00.0",
-        "model": "Linux 6.12.19 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.14.10 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.3/0000:05:00.0/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
         "resources": [
@@ -2077,10 +2140,14 @@
         },
         "hotplug": "usb",
         "driver": "hub",
+        "driver_module": "usbcore",
         "drivers": [
           "hub"
         ],
-        "module_alias": "usb:v1D6Bp0002d0612dc09dsc00dp01ic09isc00ip00in00"
+        "driver_modules": [
+          "usbcore"
+        ],
+        "module_alias": "usb:v1D6Bp0002d0614dc09dsc00dp01ic09isc00ip00in00"
       },
       {
         "index": 50,
@@ -2105,7 +2172,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.12.19 xhci-hcd",
+          "name": "Linux 6.14.10 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -2115,11 +2182,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.12",
+          "name": "6.14",
           "value": 0
         },
         "serial": "0000:05:00.0",
-        "model": "Linux 6.12.19 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.14.10 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.3/0000:05:00.0/usb2/2-0:1.0",
         "sysfs_bus_id": "2-0:1.0",
         "detail": {
@@ -2150,10 +2217,14 @@
         },
         "hotplug": "usb",
         "driver": "hub",
+        "driver_module": "usbcore",
         "drivers": [
           "hub"
         ],
-        "module_alias": "usb:v1D6Bp0003d0612dc09dsc00dp03ic09isc00ip00in00"
+        "driver_modules": [
+          "usbcore"
+        ],
+        "module_alias": "usb:v1D6Bp0003d0614dc09dsc00dp03ic09isc00ip00in00"
       }
     ],
     "memory": [
@@ -2178,7 +2249,7 @@
           {
             "type": "mem",
             "base": 0,
-            "range": 3053621248,
+            "range": 3052503040,
             "enabled": true,
             "access": "read_write",
             "prefetch": "unknown"
@@ -2516,6 +2587,29 @@
     "network_interface": [
       {
         "index": 51,
+        "attached_to": 0,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "unix_device_name": "lo",
+        "unix_device_names": [
+          "lo"
+        ]
+      },
+      {
+        "index": 52,
         "attached_to": 40,
         "class_list": [
           "network_interface"
@@ -2554,29 +2648,6 @@
         ],
         "driver_modules": [
           "virtio_net"
-        ]
-      },
-      {
-        "index": 52,
-        "attached_to": 0,
-        "class_list": [
-          "network_interface"
-        ],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Loopback",
-          "value": 0
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_name": "lo",
-        "unix_device_names": [
-          "lo"
         ]
       }
     ],
@@ -3001,7 +3072,7 @@
           },
           {
             "type": "irq",
-            "base": 53,
+            "base": 55,
             "triggered": 0,
             "enabled": true
           },
@@ -3019,7 +3090,7 @@
           "command": 1287,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 53,
+          "irq": 55,
           "prog_if": 1
         },
         "driver": "ahci",
@@ -3735,38 +3806,40 @@
       "start_address": "0xe8000",
       "rom_size": 65536
     },
-    "chassis": {
-      "handle": 768,
-      "manufacturer": "QEMU",
-      "version": "pc-q35-7.2",
-      "chassis_type": {
-        "hex": "0001",
-        "name": "Other",
-        "value": 1
-      },
-      "lock_present": false,
-      "bootup_state": {
-        "hex": "0003",
-        "name": "Safe",
-        "value": 3
-      },
-      "power_state": {
-        "hex": "0003",
-        "name": "Safe",
-        "value": 3
-      },
-      "thermal_state": {
-        "hex": "0003",
-        "name": "Safe",
-        "value": 3
-      },
-      "security_state": {
-        "hex": "0002",
-        "name": "Unknown",
-        "value": 2
-      },
-      "oem": "0x0"
-    },
+    "chassis": [
+      {
+        "handle": 768,
+        "manufacturer": "QEMU",
+        "version": "pc-q35-7.2",
+        "chassis_type": {
+          "hex": "0001",
+          "name": "Other",
+          "value": 1
+        },
+        "lock_present": false,
+        "bootup_state": {
+          "hex": "0003",
+          "name": "Safe",
+          "value": 3
+        },
+        "power_state": {
+          "hex": "0003",
+          "name": "Safe",
+          "value": 3
+        },
+        "thermal_state": {
+          "hex": "0003",
+          "name": "Safe",
+          "value": 3
+        },
+        "security_state": {
+          "hex": "0002",
+          "name": "Unknown",
+          "value": 2
+        },
+        "oem": "0x0"
+      }
+    ],
     "memory_array": [
       {
         "handle": 4096,
@@ -3785,7 +3858,7 @@
           "name": "Multi-bit",
           "value": 6
         },
-        "max_size": 3145728,
+        "max_size": "0x300000",
         "error_handle": 65534,
         "slots": 1
       }
@@ -3794,15 +3867,15 @@
       {
         "handle": 4864,
         "array_handle": 4096,
-        "start_address": 0,
-        "end_address": 2147483648,
+        "start_address": "0x0",
+        "end_address": "0x80000000",
         "part_width": 1
       },
       {
         "handle": 4865,
         "array_handle": 4096,
-        "start_address": 4294967296,
-        "end_address": 5368709120,
+        "start_address": "0x100000000",
+        "end_address": "0x140000000",
         "part_width": 1
       }
     ],

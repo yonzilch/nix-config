@@ -1,16 +1,21 @@
-{lib, ...}: {
+{lib, ...}: let
+  primary-device = "/dev/disk/by-path/pci-0000:04:00.0-scsi-0:0:0:0";
+  hostname = "crunchbits";
+  ls = lib.filesystem.listFilesRecursive;
+in {
   imports =
     [
-      ../../modules/optional/zfs.nix
+      ../../modules/optional/qb.nix
+      ../../modules/optional/terminal-implement.nix
     ]
-    ++ lib.filesystem.listFilesRecursive ../../modules/shared
-    ++ lib.filesystem.listFilesRecursive ../../sops/eval/crunchbits;
+    ++ ls ../../modules/shared
+    ++ ls ../../sops/eval/${hostname};
 
   clan.core.networking = {
-    targetHost = "root@crunchbits";
+    targetHost = "root@${hostname}";
   };
 
-  disko.devices.disk.main.device = "/dev/disk/by-path/pci-0000:04:00.0-scsi-0:0:0:0";
+  disko.devices.disk.main.device = primary-device;
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''
